@@ -79,7 +79,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to right, rgba(10, 15, 20, 0.8), rgba(28, 105, 56, 0.6));
+            background: linear-gradient(to right, rgba(8, 18, 35, 0.85), rgba(15, 35, 60, 0.4));
             z-index: 1;
         }
 
@@ -132,8 +132,19 @@
         .dots div {
             width: 6px;
             height: 6px;
-            background: rgba(255, 255, 255, 0.4);
+            background: var(--accent);
             border-radius: 50%;
+            animation: floatDot 4s ease-in-out infinite;
+        }
+
+        .dots div:nth-child(even) { animation-delay: 0.8s; }
+        .dots div:nth-child(3n) { animation-delay: 1.5s; }
+        .dots div:nth-child(5n) { animation-delay: 0.4s; }
+
+        @keyframes floatDot {
+            0% { transform: translate(0px, 0px); opacity: 0.8; }
+            50% { transform: translate(5px, -12px); opacity: 1; }
+            100% { transform: translate(0px, 0px); opacity: 0.8; }
         }
 
         /* Product Hero */
