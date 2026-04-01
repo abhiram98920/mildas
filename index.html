@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AAC Wall Panels | Lightweight Walling – Magicrete</title>
+    <!-- Premium Fonts: Outfit for Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
         :root {
             --primary: #1C6938; /* Dark Green */
+            --primary-hover: #145028;
             --accent: #CFAC2B;  /* Gold */
             --dark: #0A0F14;
-            --light: #F9F9F9;
-            --text: #333333;
-            --border: #E2E2E2;
+            --light: #F4F7F6;
+            --text: #4A5568;
+            --border: #E2E8F0;
             --section-bg: #FFFFFF;
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -29,14 +33,16 @@
             color: var(--text);
             background-color: var(--light);
             line-height: 1.6;
+            font-family: var(--font-body);
         }
 
-        /* Responsive Container */
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); color: var(--dark); }
+
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Banner */
@@ -44,244 +50,229 @@
             position: relative;
             width: 100%;
             height: 60vh;
-            min-height: 400px;
+            min-height: 480px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
             overflow: hidden;
+            background: url('./breadcumb-bg.png') center/cover no-repeat;
         }
         
         .banner::before {
             content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('./breadcumb-bg.png') center/cover no-repeat;
-            z-index: -2;
-        }
-        
-        .banner::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 15, 20, 0.4);
-            z-index: -1;
-        }
-
-        .banner h1 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
-            margin-bottom: 20px;
+            inset: 0;
+            background: linear-gradient(to right, rgba(10, 15, 20, 0.8), rgba(28, 105, 56, 0.6));
             z-index: 1;
         }
+
+        .banner-content { z-index: 2; position: relative; }
+        .banner h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; margin-bottom: 24px; color: #fff; line-height: 1.1; letter-spacing: -1px; }
 
         .breadcrumb {
-            font-size: 14px;
-            color: var(--primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            z-index: 1;
+            font-size: 15px; font-weight: 500; color: var(--accent); display: flex; justify-content: center; align-items: center; gap: 15px; text-transform: uppercase; letter-spacing: 1px;
         }
-        
-        .breadcrumb span {
-            width: 40px;
-            height: 1px;
-            background: var(--primary);
-        }
-        
-        /* Decorative details */
-        .dots {
-            position: absolute; left: 5%; top: 50%; transform: translateY(-50%);
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-        }        
-        .dots div { width: 4px; height: 4px; background: var(--accent); border-radius: 50%; }
+        .breadcrumb span { width: 50px; height: 2px; background: var(--accent); opacity: 0.6; }
 
-        .line {
-            position: absolute; right: -5%; bottom: 5%;
-            width: 400px; height: 200px;
-            border-top: 1px solid #FF5722; border-left: 1px solid #FF5722;
-            border-top-left-radius: 150px;
-            transform: rotate(-10deg) scaleX(-1);
-            opacity: 0.7;
-        }
+        /* Decorative Shapes */
+        .dots {
+            position: absolute; left: 5%; top: 50%; transform: translateY(-50%); z-index: 2;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;
+        }        
+        .dots div { width: 6px; height: 6px; background: rgba(255,255,255,0.4); border-radius: 50%; }
 
         /* Product Hero */
         .product-hero {
-            display: flex; flex-wrap: wrap; gap: 40px; align-items: center;
-            background: #fff; padding: clamp(20px, 4vw, 40px);
-            border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin: -60px auto 40px; position: relative; z-index: 10;
+            display: flex; flex-wrap: wrap; gap: 60px; align-items: center;
+            background: #fff; padding: clamp(30px, 5vw, 60px);
+            border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            margin: -80px auto 60px; position: relative; z-index: 10; border: 1px solid rgba(0,0,0,0.05);
         }
-        .product-image { flex: 1; min-width: 250px; text-align: center; }
-        .product-image img { max-width: 100%; height: auto; border-radius: 8px; }
-        .product-info { flex: 1.5; min-width: 280px; }
-        .product-info h2 { font-size: 32px; color: var(--dark); margin-bottom: 20px; font-weight: 600; }
+        .product-image { flex: 1; min-width: 300px; }
+        .product-image img { max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-info { flex: 1.5; min-width: 320px; }
+        .product-info h2 { font-size: 40px; margin-bottom: 24px; font-weight: 700; letter-spacing: -0.5px; }
 
-        /* Read More Expandable */
-        .content-scrollable {
-            max-height: 220px; overflow: hidden; position: relative; transition: max-height 0.4s ease;
-        }
+        .content-scrollable { max-height: 200px; overflow: hidden; position: relative; transition: max-height 0.5s ease; font-size: 17px; }
         .content-scrollable::after {
-            content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 60px;
-            background: linear-gradient(transparent, #fff); pointer-events: none; transition: opacity 0.4s ease;
+            content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 80px;
+            background: linear-gradient(transparent, #fff); pointer-events: none; transition: opacity 0.5s ease;
         }
-        .content-scrollable.expanded { max-height: 350px; overflow-y: auto; padding-right: 10px; }
+        .content-scrollable.expanded { max-height: 600px; overflow-y: auto; padding-right: 15px; }
         .content-scrollable.expanded::after { opacity: 0; }
         .content-scrollable::-webkit-scrollbar { width: 6px; }
         .content-scrollable::-webkit-scrollbar-thumb { background-color: var(--primary); border-radius: 10px; }
         
         .read-more-btn {
-            font-weight: 700; color: var(--dark); cursor: pointer; margin-top: 10px; display: inline-block; font-size: 16px;
+            font-weight: 600; color: var(--primary); cursor: pointer; margin-top: 15px; display: inline-flex; align-items: center; gap: 5px; font-size: 16px; transition: 0.3s;
         }
-        .read-more-btn:hover { color: var(--primary); }
+        .read-more-btn:hover { color: var(--dark); gap: 8px; }
 
         .btn-primary {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 14px 32px; background: var(--primary); color: #fff; text-decoration: none;
-            border-radius: 50px; font-weight: 600; font-size: 16px; border: 2px solid var(--primary); transition: all 0.3s ease;
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            padding: 16px 36px; background: var(--primary); color: #fff; text-decoration: none;
+            border-radius: 50px; font-weight: 600; font-size: 16px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(28, 105, 56, 0.2);
         }
-        .btn-primary:hover { background: transparent; color: var(--primary); transform: translateY(-2px); }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(28, 105, 56, 0.3); }
+
         .btn-outline {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 14px 40px; background: transparent; color: var(--dark); text-decoration: none;
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            padding: 16px 40px; background: transparent; color: var(--dark); text-decoration: none;
             border-radius: 50px; font-weight: 600; font-size: 16px; border: 2px solid var(--border); transition: all 0.3s ease;
         }
         .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 
         /* Sticky Navigation */
         .sticky-nav-container {
-            position: sticky; top: 0; background: #fff; z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 15px 0; margin-bottom: 40px; overflow-x: auto;
+            position: sticky; top: 0; background: rgba(255,255,255,0.95); z-index: 100; backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); padding: 15px 0; margin-bottom: 60px; overflow-x: auto;
         }
         .sticky-nav {
-            display: flex; justify-content: flex-start; gap: 20px; list-style: none; white-space: nowrap; padding: 0 20px;
+            display: flex; justify-content: flex-start; gap: 24px; list-style: none; white-space: nowrap; padding: 0 24px; font-family: var(--font-head);
         }
         @media(min-width: 1024px) { .sticky-nav { justify-content: center; } }
         .sticky-nav li a {
-            text-decoration: none; color: var(--text); font-weight: 600; font-size: 16px;
-            padding: 8px 16px; border-radius: 20px; transition: all 0.3s ease;
+            text-decoration: none; color: var(--text); font-weight: 600; font-size: 15px;
+            padding: 8px 16px; border-radius: 30px; transition: all 0.3s ease; letter-spacing: 0.5px;
         }
-        .sticky-nav li a:hover, .sticky-nav li a.active { color: var(--primary); background: rgba(28, 105, 56, 0.1); }
+        .sticky-nav li a:hover, .sticky-nav li a.active { color: #fff; background: var(--primary); box-shadow: 0 4px 12px rgba(28, 105, 56, 0.2); }
 
         /* Sections */
-        section { padding: 60px 0; }
+        section { padding: 80px 0; }
         section:nth-child(even) { background-color: #fff; }
-        .section-title { text-align: center; font-size: clamp(28px, 4vw, 36px); margin-bottom: 40px; color: var(--dark); font-weight: 600; }
+        .section-title { text-align: center; font-size: clamp(32px, 5vw, 44px); margin-bottom: 60px; color: var(--dark); font-weight: 800; letter-spacing: -1px; }
 
-        /* Features */
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        /* Features - Ultra Modern */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
         .feature-card {
-            background: white; padding: 40px 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            border-left: 6px solid var(--accent); display: flex; flex-direction: column; gap: 15px; position: relative; z-index: 1; overflow: hidden;
-            transition: transform 0.4s ease;
+            background: #fff; padding: 50px 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.03); display: flex; flex-direction: column; gap: 20px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
         }
         .feature-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(28, 105, 56, 0.05) 0%, rgba(207, 172, 43, 0.05) 100%); z-index: -1; opacity: 0; transition: opacity 0.4s ease;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
         }
-        .feature-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .feature-card:hover::before { opacity: 1; }
-        .feature-icon { width: 48px; height: 48px; background: rgba(28, 105, 56, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); margin-bottom: 10px; transition: transform 0.4s ease; }
-        .feature-card:hover .feature-icon { transform: scale(1.1) rotate(5deg); }
-        .feature-card h3 { color: var(--primary); font-size: 22px; font-weight: 700; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-icon-wrapper {
+            width: 72px; height: 72px; background: linear-gradient(135deg, rgba(28,105,56,0.1), rgba(207,172,43,0.1));
+            border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--primary);
+            transition: transform 0.4s ease;
+        }
+        .feature-card:hover .feature-icon-wrapper { transform: scale(1.1) rotate(-5deg); background: var(--primary); color: #fff; }
+        .feature-card h3 { font-size: 24px; font-weight: 700; line-height: 1.3; }
+        .feature-card p { font-size: 16px; color: var(--text); line-height: 1.7; }
 
         /* Tables */
-        .table-responsive { overflow-x: auto; background: #fff; border-radius: 10px; padding: 20px; border: 1px solid var(--border); }
-        table { width: 100%; min-width: 600px; border-collapse: collapse; text-align: left; }
-        th, td { padding: 15px 20px; border-bottom: 1px solid var(--border); }
-        th { background: var(--primary); color: #fff; font-weight: 600; }
+        .table-responsive { overflow-x: auto; background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid var(--border); }
+        table { width: 100%; min-width: 800px; border-collapse: collapse; text-align: left; }
+        th, td { padding: 20px 24px; border-bottom: 1px solid var(--border); font-size: 16px; }
+        th { background: #f8fafc; color: var(--dark); font-weight: 700; font-family: var(--font-head); font-size: 18px; text-transform: uppercase; letter-spacing: 0.5px; }
         .compare-table th, .compare-table td { text-align: center; }
-        .compare-table td:first-child { text-align: left; font-weight: 600; }
-        .compare-table img { max-width: 100px; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
+        .compare-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); font-family: var(--font-head); font-size: 18px; }
+        .compare-table img { max-width: 120px; height: auto; display: block; margin: 0 auto; mix-blend-mode: multiply; }
+        .compare-highlight { color: var(--primary); font-weight: 700; font-size: 17px; background: rgba(28,105,56,0.05); border-radius: 8px; }
 
-        /* Sliders / Carousels for KB & Gallery */
-        .carousel-track {
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; scrollbar-width: none;
-        }
+        /* Sliders / Carousels */
+        .carousel-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 30px; padding-bottom: 30px; scrollbar-width: none; }
         .carousel-track::-webkit-scrollbar { display: none; }
         
         .carousel-slide {
-            flex: 0 0 clamp(280px, 30%, 350px);
-            scroll-snap-align: start; position: relative; border-radius: 12px; overflow: hidden; cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #fff; display: flex; flex-direction: column;
+            flex: 0 0 clamp(300px, 30%, 400px); scroll-snap-align: start; position: relative; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); background: #fff; display: flex; flex-direction: column; transition: 0.3s;
         }
+        .carousel-slide:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         
         /* KB Specific */
-        .kb-slide { padding: 0; text-align: center; border: 1px solid #eee; }
-        .kb-slide img { width: 100%; height: 200px; object-fit: cover; }
-        .kb-content { padding: 25px; display: flex; flex-direction: column; align-items: center; gap: 20px; flex: 1; }
-        .kb-content h3 { font-size: 18px; font-weight: 700; color: #000; min-height: 44px; }
+        .kb-slide img { width: 100%; height: 240px; object-fit: cover; }
+        .kb-content { padding: 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; flex: 1; justify-content: space-between; }
+        .kb-content h3 { font-size: 20px; font-weight: 700; color: var(--dark); line-height: 1.4; }
 
-        /* Related Blogs */
-        .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        /* Related Blogs - Same Line Align */
+        .blogs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
         .blog-card {
-            background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee;
-            display: flex; flex-direction: column; transition: transform 0.3s ease;
+            background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--border);
+            display: flex; flex-direction: column; transition: transform 0.4s ease; height: 100%;
         }
-        .blog-card:hover { transform: translateY(-5px); }
-        .blog-card img { width: 100%; height: 220px; object-fit: cover; background: var(--light); border-bottom: 4px solid var(--accent); }
-        .blog-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
-        .blog-content h4 { color: var(--primary); margin-bottom: 10px; font-size: 20px; font-weight: 700; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .blog-card img { width: 100%; height: 240px; object-fit: cover; background: var(--light); position: relative; }
+        .blog-content { padding: 35px 30px; display: flex; flex-direction: column; flex-grow: 1; }
+        .blog-content h4 { color: var(--dark); margin-bottom: 15px; font-size: 22px; font-weight: 700; line-height: 1.4; transition: 0.3s; }
+        .blog-card:hover h4 { color: var(--primary); }
+        .blog-content p { color: var(--text); font-size: 16px; margin-bottom: 30px; }
+        .blog-content .btn-primary { margin-top: auto; align-self: flex-start; } /* Forces button to the bottom! */
 
-        /* Gallery Overlay */
+        /* Project Gallery */
         .gallery-slide { aspect-ratio: 3/4; }
-        .gallery-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
         .gallery-slide:hover img { transform: scale(1.1); }
         .slide-overlay {
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to top, rgba(16, 23, 62, 0.95) 0%, rgba(16, 23, 62, 0.1) 100%);
-            color: #fff; padding: 25px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 0.3s ease;
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 15, 20, 0.9) 0%, rgba(10, 15, 20, 0.1) 60%);
+            color: #fff; padding: 30px; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 0.4s ease;
         }
         .gallery-slide:hover .slide-overlay { opacity: 1; }
-        .slide-overlay h4 { font-size: 22px; margin-bottom: 10px; font-weight: 700; }
-        .slide-overlay p { font-size: 14px; margin-bottom: 5px; color: #ccc; }
+        .slide-overlay h4 { font-size: 26px; margin-bottom: 10px; font-weight: 700; }
+        .slide-overlay p { font-size: 15px; color: #e2e8f0; margin-bottom: 5px; font-weight: 500; }
 
-        /* FAQs */
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: #fff; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .faq-question { padding: 20px; font-weight: 600; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s ease; color: #555; background: var(--light); }
-        .faq-item.active .faq-answer { max-height: 500px; padding: 20px; }
-        .faq-item.active .faq-question { color: var(--primary); }
+        /* FAQs Tabbed Interface */
+        .faq-cal { width: 100%; max-width: 900px; margin: 0 auto; }
+        .tab-faq { background: #fff; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid var(--border); overflow: hidden; }
         
-        /* Footer SEO Text */
-        .footer-seo { padding: 60px 20px; background: #fff; }
-        .footer-seo h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; color: var(--dark); }
-        .footer-seo h3 { font-size: 22px; font-weight: 600; margin-top: 30px; margin-bottom: 15px; color: var(--primary); }
-        .footer-seo p { margin-bottom: 15px; }
-        .footer-seo ul { margin-left: 20px; margin-bottom: 20px; }
-        .footer-seo li { margin-bottom: 10px; }
+        .product-menu .tab {
+            display: flex; flex-wrap: wrap; list-style: none; background: #f8fafc; border-bottom: 1px solid var(--border);
+        }
+        .product-menu .tab li { flex: 1; min-width: 200px; }
+        .product-menu .tab button {
+            width: 100%; padding: 20px; border: none; background: transparent; cursor: pointer; font-size: 16px; font-family: var(--font-head);
+            font-weight: 600; color: var(--text); transition: 0.3s; border-bottom: 3px solid transparent;
+        }
+        .product-menu .tab button:hover { background: #fff; color: var(--primary); }
+        .product-menu .tab button.active { background: #fff; color: var(--primary); border-bottom-color: var(--primary); }
 
+        .product-menu-item { padding: 40px; }
+        .tabcontent { display: none; animation: fadeUp 0.5s ease; }
+        .tabcontent.active-tab { display: block; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Accordion Inside Tabs */
+        .acc-container { display: flex; flex-direction: column; gap: 15px; }
+        .acc { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fafafa; transition: 0.3s; }
+        .acc.active { border-color: var(--primary); background: #fff; box-shadow: 0 5px 15px rgba(28,105,56,0.08); }
+        .acc-head { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .accordian-title { font-size: 18px; font-weight: 600; color: var(--dark); margin: 0; transition: 0.3s; }
+        .acc.active .accordian-title { color: var(--primary); }
+        .acc-head::after { content: '+'; font-size: 24px; color: var(--primary); transition: 0.3s; font-weight: 400; }
+        .acc.active .acc-head::after { content: '-'; transform: rotate(180deg); }
+        .acc-content { padding: 0 25px; max-height: 0; overflow: hidden; transition: all 0.4s ease; color: var(--text); font-size: 16px; }
+        .acc.active .acc-content { max-height: 1000px; padding: 0 25px 25px; }
+        .acc-content p { margin-bottom: 10px; line-height: 1.7; }
+        .acc-content p:last-child { margin-bottom: 0; }
+        .acc-content table { margin-top: 15px; font-size: 14px; }
+        .acc-content th, .acc-content td { padding: 10px; }
+
+        /* Footer SEO Text */
+        .footer-seo { padding: 80px 20px; background: #fff; }
+        .footer-seo h2 { font-size: 36px; font-weight: 800; margin-bottom: 24px; color: var(--dark); letter-spacing: -0.5px; }
+        .footer-seo h3 { font-size: 24px; font-weight: 700; margin-top: 40px; margin-bottom: 16px; color: var(--dark); }
+        .footer-seo p, .footer-seo li { font-size: 17px; margin-bottom: 16px; color: var(--text); }
+        .footer-seo ul { margin-left: 20px; margin-bottom: 24px; }
+        
         @media (max-width: 768px) {
             .dots { display: none; }
-        }
-    
-        /* Advanced Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .product-hero { padding: 20px; margin-top: -30px; }
-            .product-info h2 { font-size: 28px; }
-            section { padding: 40px 0; }
-            .features-grid { grid-template-columns: 1fr; gap: 20px; }
-            .feature-card { padding: 25px 20px; }
+            .product-hero { padding: 30px 20px; margin-top: -40px; }
+            .product-info h2 { font-size: 32px; }
+            section { padding: 50px 0; }
+            .features-grid { grid-template-columns: 1fr; }
             .carousel-slide { flex: 0 0 85%; }
-            .sticky-nav { flex-wrap: wrap; justify-content: center; white-space: normal; padding: 0 10px; gap: 10px; }
-            .sticky-nav li a { font-size: 14px; padding: 6px 12px; }
-            th, td { padding: 10px; font-size: 14px; }
-            .kb-slide img { height: 160px; }
-            .blog-card img { height: 180px; }
+            .product-menu-item { padding: 20px; }
+            .acc-head { padding: 15px; }
+            .acc-content { padding: 0 15px; }
+            .acc.active .acc-content { padding: 0 15px 15px; }
         }
-        @media (max-width: 480px) {
-            .banner { height: 40vh; min-height: 300px; }
-            .product-info h2 { font-size: 24px; }
-            .btn-primary, .btn-outline { width: 100%; justify-content: center; }
-            .read-more-btn { width: 100%; text-align: left; }
-        }
-
     </style>
 </head>
 <body>
@@ -292,12 +283,10 @@
             <div></div><div></div><div></div><div></div>
             <div></div><div></div><div></div><div></div>
             <div></div><div></div><div></div><div></div>
-            <div></div><div></div><div></div><div></div>
         </div>
-        <div class="line"></div>
 
-        <div class="container" style="z-index: 1;">
-            <h1>AAC Wall Panels, The future is here</h1>
+        <div class="container banner-content">
+            <h1>AAC Wall Panels. <br><span style="color: var(--accent);">The future is here.</span></h1>
             <div class="breadcrumb"><span></span> Home / Our Products <span></span></div>
         </div>
     </section>
@@ -309,19 +298,22 @@
                 <img src="./536x672-wall-panel-1704448894--1--1714479286_1770026970.webp" alt="AAC Wall Panel">
             </div>
             <div class="product-info">
-                <h2>AAC Wall Panels</h2>
+                <h2>Magicrete AAC Wall Panels</h2>
                 <div class="content-box">
                     <div class="content-scrollable" id="expandable-hero">
                         <p>Magicrete AAC Wall Panels is the quintessential green building material incorporating features long been desired by builders, engineers, and architects in the building construction industry. Their advantages surpass traditional construction methods, such as red clay bricks and concrete blocks, in several key aspects: <strong>strength, acoustics, thermal insulation, fire resistance, and installation efficiency</strong>. These panels, reinforced with corrosion-protected steel, strike a balance between lightweight design and heavy-duty performance.</p>
-                        <p style="margin-top: 15px;">Having achieved substantial success in global markets, AAC Wall Panel technology embodies the pinnacle of durable and high-quality construction, achieved within remarkably short timelines.</p>
-                        <p style="margin-top: 15px;">These panels boast the <strong>industry's highest thermal rating, boasting a K-value of 0.16 W/(m⋅K)</strong>. Their cellular structure guarantees a well-insulated interior, ensuring cooler interiors during summer and warmer spaces in winter. Studies reveal a remarkable <strong>30% reduction in air-conditioning bills</strong>, highlighting the panels' exceptional energy efficiency.</p>
-                        <p style="margin-top: 15px;">Resource efficiency remains a hallmark of Magicrete AAC Wall Panels, emphasizing minimal environmental impact. The closed air pockets within the panels create outstanding sound insulation, reaching an <strong>STC rating of 44 dB</strong>, effectively dampening external noise. Furthermore, their impressive <strong>4-hour fire rating</strong> permits thinner wall sections, maximizing floor space for end-users. Available in full-height lengths from floor to ceiling, with varied thicknesses and a standard width of 600 mm, these panels offer versatility in design and application. Magicrete AAC wall panels' price are competitive in comparison to other walling materials available in the market.</p>
+                        <br>
+                        <p>Having achieved substantial success in global markets, AAC Wall Panel technology embodies the pinnacle of durable and high-quality construction, achieved within remarkably short timelines.</p>
+                        <br>
+                        <p>These panels boast the <strong>industry's highest thermal rating, boasting a K-value of 0.16 W/(m⋅K)</strong>. Their cellular structure guarantees a well-insulated interior, ensuring cooler interiors during summer and warmer spaces in winter. Studies reveal a remarkable <strong>30% reduction in air-conditioning bills</strong>, highlighting the panels' exceptional energy efficiency.</p>
+                        <br>
+                        <p>Resource efficiency remains a hallmark of Magicrete AAC Wall Panels, emphasizing minimal environmental impact. The closed air pockets within the panels create outstanding sound insulation, reaching an <strong>STC rating of 44 dB</strong>, effectively dampening external noise. Furthermore, their impressive <strong>4-hour fire rating</strong> permits thinner wall sections, maximizing floor space for end-users. Available in full-height lengths from floor to ceiling, with varied thicknesses and a standard width of 600 mm, these panels offer versatility in design and application. Magicrete AAC wall panels' price are competitive in comparison to other walling materials available in the market.</p>
                     </div>
                     <div class="read-more-btn" onclick="toggleReadMore('expandable-hero', this)">+ Read More</div>
                 </div>
-                <p style="margin-top: 20px;"><strong>Size:</strong> LxWxT-2000mm to 6000mmx600mmx75mm,100mm,120mm,150mm,200mm</p>
+                <p style="margin-top: 25px; font-weight: 600; font-size: 18px;"><strong>Size:</strong> LxWxT-2000mm to 6000mm x 600mm x 75mm/100mm/120mm/150mm/200mm</p>
                 
-                <div style="margin-top: 25px; display: flex; gap: 15px;">
+                <div style="margin-top: 35px; display: flex; gap: 20px;">
                     <a href="#" class="btn-primary">
                         Find A Dealer 
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -349,32 +341,32 @@
             <h2 class="section-title">Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                     <h3>Corrosion Protected Steel Reinforced</h3>
                     <p>AAC wall panels are corrosion-protected steel-reinforced, ensuring enduring and resilient performance in construction projects for sustained longevity.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="6.5"/></svg></div>
+                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="6.5"/></svg></div>
                     <h3>Lightweight</h3>
                     <p>AAC wall panels have an exceptional lightweight design, minimizing structural load while maintaining robustness and ensuring long-lasting integrity for your building.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
                     <h3>Thermal Insulation</h3>
                     <p>AAC Wall Panels offer superior insulation with ~0.16 W/m·K thermal conductivity, enabling up to 30% air conditioning energy savings in buildings across diverse climates.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
                     <h3>Fire Resistant</h3>
                     <p>AAC Wall Panels boast a unique cellular structure, offering a superior 4-hour fire rating. Their melting point exceeds 1600 degrees Celsius, ensuring exceptional fire resistance.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                     <h3>4x Faster Construction</h3>
                     <p>Boasting 4 times faster construction than AAC blocks, each AAC Wall panel equals 15 blocks, slashing project timelines dramatically for swift and efficient construction.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
                     <h3>No Coping/Bond Beam</h3>
                     <p>AAC Wall Panels do not require coping or bond beams for wall heights up to 6 meters, offering exceptional structural stability. This eliminates additional reinforcement, reducing construction time, material usage, and labor costs.</p>
                 </div>
@@ -389,7 +381,7 @@
             <div class="table-responsive">
                 <table>
                     <thead>
-                        <tr><th style="width: 40%;">PARAMETERS</th><th>SPECIFICATIONS</th></tr>
+                        <tr><th style="width: 40%;">Parameters</th><th>Specifications</th></tr>
                     </thead>
                     <tbody>
                         <tr><td>Dimension Limitations</td><td>Thickness-upto 250mm Height-upto 6m</td></tr>
@@ -421,75 +413,55 @@
                         <tr>
                             <td></td>
                             <td><img src="./300x282--wall-panel-1704448894_1717477965.webp" alt="AAC Panel"></td>
-                            <td><img src="https://via.placeholder.com/150x200/ffffff/cccccc?text=PUF+Panel" alt="PUF Panel"></td>
+                            <td><img src="./puf_1770026573.webp" alt="PUF Panel"></td>
                             <td><img src="./dry-wall_1770026590.webp" alt="Dry Wall"></td>
                             <td><img src="./sandwich-panel_1770026646.webp" alt="Sandwich Panel"></td>
                         </tr>
-                        <tr><td>Dimension Limitations</td><td style="color: var(--primary); font-weight: 600;">Thickness-upto 250mm Height-upto 6m</td><td>Thickness-upto 150mm Height-upto 3m</td><td>Thickness-upto 100mm Height-upto 2.4m</td><td>Thickness-upto 100mm Height-upto 3m</td></tr>
-                        <tr><td>Speed of Installation</td><td style="color: var(--primary); font-weight: 600;">70-80 m²/day</td><td>50-70 m²/day</td><td>40-50 m²/day</td><td>60-70 m²/day</td></tr>
-                        <tr><td>Fire Rating</td><td style="color: var(--primary); font-weight: 600;">4 Hours (100 mm)</td><td>1 Hours (100 mm)</td><td>1 Hour (100 mm)</td><td>2 Hours (75 mm)</td></tr>
-                        <tr><td>Thermal Conductivity</td><td style="color: var(--primary); font-weight: 600;">0.16 W/(m·K)</td><td>0.03 W/(m·K)</td><td>0.25 W/(m·K)</td><td>0.21 W/(m·K)</td></tr>
-                        <tr><td>STC Rating (Sound)</td><td style="color: var(--primary); font-weight: 600;">43 dB (100 mm)</td><td>30 dB (100 mm)</td><td>40 dB (100 mm)</td><td>35 dB (100 mm)</td></tr>
-                        <tr><td>MEP Compatibility</td><td style="color: var(--primary); font-weight: 600;">Excellent concealed chases possible</td><td>Poor</td><td>Easy concealment</td><td>Poor</td></tr>
-                        <tr><td>Impact Strength</td><td style="color: var(--primary); font-weight: 600;">High</td><td>Low</td><td>Moderate</td><td>Moderate</td></tr>
-                        <tr><td>Sustainability</td><td style="color: var(--primary); font-weight: 600;">GRIHA & IGBC Certified</td><td>Low (non-biodegradable)</td><td>Low (petrochemical core)</td><td>Moderate</td></tr>
+                        <tr><td>Dimension Limitations</td><td class="compare-highlight">Thickness-upto 250mm Height-upto 6m</td><td>Thickness-upto 150mm Height-upto 3m</td><td>Thickness-upto 100mm Height-upto 2.4m</td><td>Thickness-upto 100mm Height-upto 3m</td></tr>
+                        <tr><td>Speed of Installation</td><td class="compare-highlight">70-80 m²/day</td><td>50-70 m²/day</td><td>40-50 m²/day</td><td>60-70 m²/day</td></tr>
+                        <tr><td>Fire Rating</td><td class="compare-highlight">4 Hours (100 mm)</td><td>1 Hours (100 mm)</td><td>1 Hour (100 mm)</td><td>2 Hours (75 mm)</td></tr>
+                        <tr><td>Thermal Conductivity</td><td class="compare-highlight">0.16 W/(m·K)</td><td>0.03 W/(m·K)</td><td>0.25 W/(m·K)</td><td>0.21 W/(m·K)</td></tr>
+                        <tr><td>STC Rating (Sound)</td><td class="compare-highlight">43 dB (100 mm)</td><td>30 dB (100 mm)</td><td>40 dB (100 mm)</td><td>35 dB (100 mm)</td></tr>
+                        <tr><td>MEP Compatibility</td><td class="compare-highlight">Excellent concealed chases possible</td><td>Poor</td><td>Easy concealment</td><td>Poor</td></tr>
+                        <tr><td>Impact Strength</td><td class="compare-highlight">High</td><td>Low</td><td>Moderate</td><td>Moderate</td></tr>
+                        <tr><td>Sustainability</td><td class="compare-highlight">GRIHA & IGBC Certified</td><td>Low (non-biodegradable)</td><td>Low (petrochemical core)</td><td>Moderate</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- Knowledge Base & Blogs -->
+    <!-- Knowledge Base -->
     <section id="knowledge" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Knowledge Base</h2>
-            <div class="carousel-track" style="margin-bottom: 60px;">
+            <div class="carousel-track">
                 <div class="carousel-slide kb-slide">
                     <img src="./whatsapp-image-2025-08-18-at-2-06-09-pm_1755581111.jpeg" alt="Brochure">
                     <div class="kb-content">
                         <h3>AAC Wall Panel Brochure</h3>
-                        <a href="#" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Download</a>
+                        <a href="#" class="btn-primary" style="padding: 12px 28px; font-size: 15px;">Download</a>
                     </div>
                 </div>
                 <div class="carousel-slide kb-slide">
                     <img src="./whatsapp-image-2025-09-23-at-5-01-35-pm_1758635195.jpeg" alt="Video">
                     <div class="kb-content">
                         <h3>Magicrete AAC Wall Panel Video</h3>
-                        <a href="#" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">See Video</a>
+                        <a href="#" class="btn-primary" style="padding: 12px 28px; font-size: 15px;">See Video</a>
                     </div>
                 </div>
                 <div class="carousel-slide kb-slide">
                     <img src="./536x672-wall-panel-1704448894--1--1714479286_1770026970.webp" alt="GRIHA">
                     <div class="kb-content">
                         <h3>AAC Wall Panel GRIHA</h3>
-                        <a href="#" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Download</a>
+                        <a href="#" class="btn-primary" style="padding: 12px 28px; font-size: 15px;">Download</a>
                     </div>
                 </div>
                 <div class="carousel-slide kb-slide">
                     <img src="./breadcumb-bg.png" alt="GPCB">
                     <div class="kb-content">
                         <h3>AAC Wall Panel GPCB Report</h3>
-                        <a href="#" class="btn-primary" style="padding: 10px 24px; font-size: 14px;">Download</a>
-                    </div>
-                </div>
-            </div>
-            
-            <h2 class="section-title">Related Blogs</h2>
-            <div class="blogs-grid">
-                <div class="blog-card">
-                    <img src="./whatsapp-image-2025-08-18-at-2-06-09-pm_1755581111.jpeg" alt="Blog 1">
-                    <div class="blog-content">
-                        <h4>Mivan Construction vs. AAC Wall Panels</h4>
-                        <p>Which technology Works Best: Compares technologies and weighs pros and cons.</p>
-                        <a href="#" class="btn-primary" style="align-self: flex-start; padding: 10px 24px; font-size: 14px;">Read More &rarr;</a>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <img src="./whatsapp-image-2025-09-23-at-5-01-35-pm_1758635195.jpeg" alt="Blog 2">
-                    <div class="blog-content">
-                        <h4>Why AAC Panels Outperform Sandwich Panels</h4>
-                        <p>Tale of Two Technologies: Key Advantages and Differences.</p>
-                        <a href="#" class="btn-primary" style="align-self: flex-start; padding: 10px 24px; font-size: 14px;">Read More &rarr;</a>
+                        <a href="#" class="btn-primary" style="padding: 12px 28px; font-size: 15px;">Download</a>
                     </div>
                 </div>
             </div>
@@ -534,7 +506,7 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
+            <div style="text-align: center; margin-top: 50px;">
                 <a href="https://www.magicrete.in/our-project" target="_blank" class="btn-outline">View All Gallery &rarr;</a>
             </div>
         </div>
@@ -544,14 +516,145 @@
     <section id="faqs" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">FAQs</h2>
-            <div class="faq-container" id="faq-list"></div>
+            
+            <div class="faq-cal">
+                <div class="tab-faq">
+                    <div class="product-menu">
+                        <ul class="tab">
+                            <li><button class="tablinks active" onclick="openCity(event, 'productinformation')">Product Information</button></li>
+                            <li><button class="tablinks" onclick="openCity(event, 'installationandusage')">Installation and Usage</button></li>
+                            <li><button class="tablinks" onclick="openCity(event, 'customerservice')">Customer Service</button></li>
+                            <li><button class="tablinks" onclick="openCity(event, 'maintenanceandcare')">Maintenance and Care</button></li>
+                        </ul>
+                    </div>
+
+                    <div class="product-menu-item">
+                        <!-- Tab 1: Product Information -->
+                        <div id="productinformation" class="tabcontent active-tab">
+                            <div class="acc-container">
+                                <div class="acc active">
+                                    <div class="acc-head"><h3 class="accordian-title">What are AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>AAC (Autoclaved Aerated Concrete) Wall Panels are lightweight, steel-reinforced panels made from sand, cement, lime, and gypsum offering high strength, insulation, and fast installation.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">What are the standard sizes of AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Panels are available in 75/100/120/150/200 mm thickness, with a width of 600 mm and height customizable up to 6 meters.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">What thicknesses do Magicrete AAC Wall Panels come in?</h3></div>
+                                    <div class="acc-content"><p>The thickness of the panels can vary, typically between 50 mm to 200 mm, depending on the application and structural requirements.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">What are the fire resistance properties of Magicrete AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>These panels offer excellent fire resistance, contributing to safer building practices, which is a significant advantage over traditional building materials.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">Are check test certificates available for AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Yes. Magicrete provides certified test reports for compressive strength, fire, sound, and thermal performance on request.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">What materials are used to make Magicrete AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Magicrete AAC Wall Panels are made from a mixture of cement, lime, sand, gypsum, and water, enhanced with an aluminum powder that induces porosity.</p></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Installation and Usage -->
+                        <div id="installationandusage" class="tabcontent">
+                            <div class="acc-container">
+                                <div class="acc active">
+                                    <div class="acc-head"><h3 class="accordian-title">What are the initial steps for preparing to install Magicrete AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Begin by ensuring that the foundation is level and stable. Clean the area of debris and dust to provide a clean surface for installation. Check that all tools and materials required for installation, such as mortar, level, and fasteners, are ready and accessible.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">How do I properly align and place Magicrete AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Start by applying a thin layer of adhesive or mortar on the surface where the panel will be placed. Carefully align the panel at one corner and slowly lay it down towards the other end, ensuring it is perfectly horizontal using a spirit level. Use spacers to maintain uniform joints between panels.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">Are there specific environmental conditions favorable for installing AAC wall panels?</h3></div>
+                                    <div class="acc-content"><p>Yes, avoid installing AAC wall panels in extremely wet conditions or temperatures below 5°C. Ideal conditions are dry with moderate temperatures, as extreme weather can affect the setting of the adhesive and the curing process.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">How long do AAC Wall Panels last?</h3></div>
+                                    <div class="acc-content"><p>AAC Wall Panels have a useful lifespan of up to 100 years but material still retains structure after that, similar to conventional AAC blocks, ensuring durable and long-term performance.</p></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Customer Service -->
+                        <div id="customerservice" class="tabcontent">
+                            <div class="acc-container">
+                                <div class="acc active">
+                                    <div class="acc-head"><h3 class="accordian-title">How can I contact Magicrete customer service for inquiries about AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>You can reach our customer service team via email at info@magicrete.in or call us directly at +918070408010 for assistance with your AAC Wall Panels queries.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">What kind of support does Magicrete offer for AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>We offer comprehensive support including installation guidance, technical troubleshooting, and product-specific inquiries to ensure optimal usage of our AAC Wall Panels.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">Does Magicrete offer after-sales support for AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Yes, Magicrete provides after-sales support for our AAC Wall Panels. You can contact our customer service for any post-purchase inquiries or issues you might encounter.</p></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 4: Maintenance and Care -->
+                        <div id="maintenanceandcare" class="tabcontent">
+                            <div class="acc-container">
+                                <div class="acc active">
+                                    <div class="acc-head"><h3 class="accordian-title">How should I clean Magicrete AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Clean the AAC wall panels using a soft, damp cloth. Avoid using abrasive cleaners or strong chemicals which might damage the surface.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">Can tiles and paints be applied directly on AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Yes. Tiles, paint, and texture finishes can be applied directly after joint treatment and surface preparation.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">What should I do if I notice cracks in the AAC Wall Panels?</h3></div>
+                                    <div class="acc-content"><p>Small hairline cracks are normal and can be filled with acrylic caulk. For larger cracks or damages, it's best to consult a professional for proper assessment and repair.</p></div>
+                                </div>
+                                <div class="acc">
+                                    <div class="acc-head"><h3 class="accordian-title">How are AAC Wall Panels transported and handled?</h3></div>
+                                    <div class="acc-content"><p>AAC Wall Panels are palletised for easy transportation and handling. Typically, each pallet contains five panels, although this number may vary depending on the thickness of the panels. The panels are transported using trailers for large deliveries.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Blogs -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Related Blogs</h2>
+            <div class="blogs-grid">
+                <div class="blog-card">
+                    <img src="./whatsapp-image-2025-08-18-at-2-06-09-pm_1755581111.jpeg" alt="Blog 1">
+                    <div class="blog-content">
+                        <h4>Mivan Construction vs. AAC Wall Panels</h4>
+                        <p>Which technology Works Best: Compares technologies and weighs pros and cons.</p>
+                        <a href="#" class="btn-primary">Read More &rarr;</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="./whatsapp-image-2025-09-23-at-5-01-35-pm_1758635195.jpeg" alt="Blog 2">
+                    <div class="blog-content">
+                        <h4>Why AAC Panels Outperform Sandwich Panels</h4>
+                        <p>Tale of Two Technologies: Key Advantages and Differences.</p>
+                        <a href="#" class="btn-primary">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- SEO Footer Read More Section -->
-    <section class="footer-seo">
+    <section class="footer-seo" style="background-color: var(--light);">
         <div class="container">
-            <div class="content-box" style="margin: 0;">
+            <div class="content-box" style="margin: 0; padding: 40px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
                 <div class="content-scrollable" id="expandable-footer" style="max-height: 250px;">
                     <h2>Build Walls with Magicrete AAC Wall Panels</h2>
                     <p>Revolutionize your wall construction with our high-performance AAC wall panels, the lightweight, durable, and thermally efficient choice trusted across India.</p>
@@ -567,7 +670,7 @@
                         <li><strong>Cost-Effective:</strong> Reduce labor, structural costs, and long-term energy bills</li>
                         <li><strong>Eco-Conscious:</strong> Sustainable solution made from non-toxic, recyclable materials</li>
                     </ul>
-                    <p>Looking to compare? Don't miss this blog: <a href="#">AAC Wall Panels vs. Sandwich Panels – A Detailed Comparison</a></p>
+                    <p>Looking to compare? Don't miss this blog: <a href="#" style="color:var(--primary); font-weight:600;">AAC Wall Panels vs. Sandwich Panels – A Detailed Comparison</a></p>
 
                     <h3>Trusted Walling Solution Across Applications</h3>
                     <p>Magicrete AAC Panels serve diverse needs, including:</p>
@@ -577,7 +680,7 @@
                         <li><strong>Boundary Walls</strong> – A modern, lighter alternative to RCC compound walls</li>
                         <li><strong>Modular Construction</strong> – Perfect for prefabricated buildings with quick turnaround</li>
                     </ul>
-                    <p>Still deciding between Mivan Construction and AAC Panels? Read: <a href="#">Mivan vs AAC Wall Panels – Explained</a></p>
+                    <p>Still deciding between Mivan Construction and AAC Panels? Read: <a href="#" style="color:var(--primary); font-weight:600;">Mivan vs AAC Wall Panels – Explained</a></p>
 
                     <h3>Wall Panel Pricing – Transparent & Competitive</h3>
                     <p>Our AAC Wall Panels offer unmatched value. While AAC wall panel prices vary by size, thickness, and volume, Magicrete ensures transparent pricing across all regions.</p>
@@ -590,9 +693,9 @@
                     <h3>Discover More Insights: Expert Resources on AAC Wall Panel</h3>
                     <p>Stay ahead in your construction journey with our latest insights. This section updates automatically as new articles are published.</p>
                     <p>
-                        🔗 <a href="#">AAC Wall Panels vs Sandwich Panels – Detailed Comparison</a><br>
-                        🔗 <a href="#">Mivan Construction vs AAC Wall Panels – Explained</a><br>
-                        🔗 <a href="#">AAC Block Jointing Mortar – Better Than Traditional Cement?</a>
+                        🔗 <a href="#" style="color:var(--primary); font-weight:500;">AAC Wall Panels vs Sandwich Panels – Detailed Comparison</a><br>
+                        🔗 <a href="#" style="color:var(--primary); font-weight:500;">Mivan Construction vs AAC Wall Panels – Explained</a><br>
+                        🔗 <a href="#" style="color:var(--primary); font-weight:500;">AAC Block Jointing Mortar – Better Than Traditional Cement?</a>
                     </p>
                 </div>
                 <div class="read-more-btn" onclick="toggleReadMore('expandable-footer', this)">+ Read More</div>
@@ -606,51 +709,39 @@
             const content = document.getElementById(targetId);
             if (content.classList.contains('expanded')) {
                 content.classList.remove('expanded');
-                btn.innerText = '+ Read More';
+                btn.innerHTML = '+ Read More';
             } else {
                 content.classList.add('expanded');
-                btn.innerText = '- Read Less';
+                btn.innerHTML = '- Read Less';
             }
         }
 
-        const faqData = [
-            { question: "What materials are used to make Magicrete AAC Wall Panels?", answer: "Magicrete AAC Wall Panels are made from a mixture of cement, lime, sand, gypsum, and water, enhanced with an aluminum powder that induces porosity." },
-            { question: "What are the standard sizes available for AAC Wall Panels?", answer: "The panels come in various lengths and heights, primarily ranging from 2400 mm to 3000 mm in length and 600 mm in height, providing flexibility for different construction needs." },
-            { question: "What thicknesses do Magicrete AAC Wall Panels come in?", answer: "The thickness of the panels can vary, typically between 50 mm to 200 mm, depending on the application." }
-        ];
-
-        const faqList = document.getElementById('faq-list');
-        faqData.forEach((item) => {
-            const faqDiv = document.createElement('div');
-            faqDiv.className = 'faq-item';
-            faqDiv.innerHTML = `
-                <div class="faq-question">
-                    <span>${item.question}</span>
-                    <span class="faq-icon" style="font-size:24px; transition: transform 0.3s; color: var(--primary);">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p style="padding-bottom: 20px;">${item.answer}</p>
-                </div>
-            `;
-            faqList.appendChild(faqDiv);
-        });
-
-        document.querySelectorAll('.faq-item').forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
-                    faq.querySelector('.faq-icon').innerText = '+';
-                    faq.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        // Accordion functionality
+        document.querySelectorAll('.acc-head').forEach(head => {
+            head.addEventListener('click', function() {
+                const parent = this.parentElement;
+                
+                // Close others in same container
+                const siblings = parent.parentElement.querySelectorAll('.acc');
+                siblings.forEach(sib => {
+                    if (sib !== parent) sib.classList.remove('active');
                 });
-                if (!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('.faq-icon').innerText = '−';
-                    item.querySelector('.faq-icon').style.transform = 'rotate(180deg)';
-                }
+                
+                parent.classList.toggle('active');
             });
         });
+
+        // Tabs functionality
+        function openCity(evt, tabName) {
+            const tabcontent = document.querySelectorAll(".tabcontent");
+            tabcontent.forEach(content => content.classList.remove("active-tab"));
+            
+            const tablinks = document.querySelectorAll(".tablinks");
+            tablinks.forEach(link => link.classList.remove("active"));
+            
+            document.getElementById(tabName).classList.add("active-tab");
+            evt.currentTarget.classList.add("active");
+        }
 
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.sticky-nav li a');
