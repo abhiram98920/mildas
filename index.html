@@ -1701,6 +1701,9 @@
 
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.sticky-nav li a');
+        const stickyNav = document.querySelector('.sticky-nav');
+        let currentSectionId = '';
+
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
@@ -1709,10 +1712,22 @@
                     current = section.getAttribute('id');
                 }
             });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) link.classList.add('active');
-            });
+
+            if (current !== currentSectionId) {
+                currentSectionId = current;
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (current && link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                        // Auto-scroll the menu to keep active tab centered
+                        if (stickyNav && window.innerWidth <= 1024) {
+                            const li = link.parentElement;
+                            const scrollPos = li.offsetLeft - (stickyNav.offsetWidth / 2) + (li.offsetWidth / 2);
+                            stickyNav.scrollTo({ left: Math.max(0, scrollPos), behavior: 'smooth' });
+                        }
+                    }
+                });
+            }
         });
     </script>
 </body>
