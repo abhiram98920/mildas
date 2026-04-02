@@ -399,14 +399,56 @@
 
         @media (max-width: 1024px) {
             .nav-menu {
-                display: none; /* Mobile menu logic to be added */
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: #081223;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1001;
+                display: flex;
             }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu a {
+                font-size: 20px;
+                opacity: 0.8;
+                padding: 10px 20px;
+            }
+
+            .nav-menu a:hover {
+                opacity: 1;
+            }
+
             .mobile-toggle {
                 display: block;
+                position: relative;
+                z-index: 1002;
             }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
+
+            .mobile-toggle.active svg line:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-toggle.active svg line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active svg line:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6.5px);
+            }
+
+            .sticky-nav-container {
+                top: 60px;
+                padding: 10px 0;
             }
         }
 
@@ -2181,6 +2223,25 @@
         backToTop.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu Logic
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinksMobile = document.querySelectorAll('.nav-menu a');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
         });
     </script>
 </body>
