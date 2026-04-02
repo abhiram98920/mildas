@@ -157,16 +157,16 @@
             font-family: var(--font-body) !important;
             word-wrap: break-word;
             overflow-wrap: break-word;
-            /* Avoid overflow-x: hidden on body as it can break position: sticky in some browsers */
-            overflow-x: visible; 
+            overflow-x: hidden !important; 
             margin: 0;
             padding: 0;
         }
 
-        /* Safer overflow management for mobile to ensure stickiness works */
+        /* Safer overflow management to ensure stickiness works */
         .main-wrapper {
-            overflow: clip; 
+            position: relative;
             width: 100%;
+            overflow: visible !important; /* Critical for sticky to work */
         }
 
         h1,
@@ -325,10 +325,10 @@
             background: #0f1d37 !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 0 !important; /* Zero padding for ultra-compact 50px */
+            padding: 0 !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            height: 50px !important; /* Decreased from 60px */
+            height: 50px !important;
             display: flex;
             align-items: center;
         }
@@ -337,14 +337,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 100%; /* Fill the 50px */
+            height: 50px;
         }
 
         .logo img {
-            height: 32px !important; /* Further decreased to fit 50px */
+            height: 30px !important; /* Smaller sticky logo */
             width: auto;
             display: block;
-            transition: all 0.3s ease;
+            transition: height 0.3s ease;
         }
 
         .roadly-header-area:not(.scrolled) .logo img {
@@ -354,24 +354,29 @@
         .nav_scroll {
             display: flex !important;
             align-items: center !important;
-            flex-wrap: nowrap !important; /* Prevent wrapping broooo */
+            flex-wrap: nowrap !important;
             gap: 25px;
             margin: 0;
             padding: 0;
             list-style: none;
         }
 
+        .nav_scroll li a {
+            white-space: nowrap !important; /* Prevent About Us from wrapping broooo */
+            display: block;
+            transition: all 0.3s ease;
+        }
+
         /* Responsive Nav Compaction */
         @media (max-width: 1350px) {
             .nav_scroll {
-                gap: 15px !important;
+                gap: 12px !important;
             }
             .nav_scroll li a {
-                font-size: clamp(11px, 1vw, 13px) !important;
-                letter-spacing: 0.3px !important;
+                font-size: 13px !important;
             }
-            .roadly_btn a {
-                padding: 10px 15px !important;
+            .header-button.roadly_btn a {
+                padding: 10px 20px !important;
                 font-size: 14px !important;
             }
         }
@@ -1750,6 +1755,7 @@
             </div>
         </div>
     </div>
+    <div class="main-wrapper">
     <!-- ============================================================== -->
     <!-- MOBILE MENU: Responsive Navigation                         -->
     <!-- ============================================================== -->
@@ -2509,9 +2515,10 @@
         </div>
     </section>
 
-    <!-- ============================================================== -->
-    <!-- FOOTER SECTION: Contact and Legal Information              -->
-    <!-- ============================================================== -->
+    	<!-- ============================================================== -->
+	<!-- FOOTER SECTION: Site Footer -->
+	<!-- ============================================================== -->
+    </div> <!-- Close main-wrapper -->
     <section class="footer_area boxed">
 		<div class="container">
 			<div class="row">
