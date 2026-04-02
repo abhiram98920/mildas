@@ -145,13 +145,14 @@
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
-            padding: 16px 36px !important;
-            background: var(--primary) !important;
+            padding: 15px 30px !important;
+            background: #1c6938 !important;
             color: #fff !important;
             text-decoration: none !important;
-            border-radius: 4px !important;
-            font-weight: 600 !important;
-            font-size: 16px !important;
+            border-radius: 0 !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            font-family: "Space Grotesk" !important;
             transition: all 0.3s ease !important;
         }
 
@@ -164,12 +165,12 @@
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
-            padding: 16px 40px !important;
+            padding: 15px 40px !important;
             background: transparent !important;
             color: var(--dark) !important;
             text-decoration: none !important;
-            border-radius: 4px !important;
-            font-weight: 600 !important;
+            border-radius: 0 !important;
+            font-weight: 500 !important;
             border: 2px solid var(--border) !important;
             transition: all 0.3s ease !important;
         }
@@ -181,14 +182,16 @@
 
         /* Specific fix for roadly_btn */
         .roadly_btn a {
-            background: var(--primary) !important;
+            background: #1c6938 !important;
             color: #fff !important;
-            padding: 12px 25px !important;
-            border-radius: 4px !important;
+            padding: 15px 30px !important;
+            border-radius: 0 !important;
             display: inline-flex !important;
             align-items: center !important;
             gap: 10px !important;
-            font-weight: 600 !important;
+            font-weight: 500 !important;
+            font-size: 18px !important;
+            font-family: "Space Grotesk" !important;
             text-decoration: none !important;
         }
 
@@ -262,8 +265,8 @@
             content: "";
             width: 40px;
             height: 6px;
-            border-top: 1.5px solid #1f6b3a;
-            border-bottom: 1.5px solid #1f6b3a;
+            border-top: 1.5px solid #1c6938;
+            border-bottom: 1.5px solid #1c6938;
             opacity: 0.8;
         }
 
@@ -281,7 +284,7 @@
         }
 
         .roadly-header-area.scrolled {
-            background: rgba(8, 18, 35, 0.95);
+            background: #0f1d37 !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 15px 0;
@@ -332,10 +335,11 @@
             background: #1c6938;
             color: #ffffff;
             text-decoration: none;
-            padding: 12px 28px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 15px;
+            padding: 15px 30px;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 18px;
+            font-family: "Space Grotesk";
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -811,14 +815,14 @@
 
         /* Sticky Navigation */
         .sticky-nav-container {
-            position: sticky;
-            top: 90px; /* Matching new scrolled header height */
-            background: rgba(255, 255, 255, 0.98);
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: 15px 0;
-            margin-bottom: 0;
+            position: sticky !important;
+            position: -webkit-sticky !important; /* Safari compatibility */
+            top: 90px !important;
+            background: #ffffff !important;
+            z-index: 999 !important; /* Just below main header (1000) */
+            border-bottom: 1px solid var(--border) !important;
+            padding: 15px 0 !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
         }
 
         .sticky-nav {
@@ -827,17 +831,17 @@
             gap: 24px;
             list-style: none;
             padding: 0 24px;
-            font-family: var(--font-head);
+            font-family: "Space Grotesk", sans-serif !important;
             flex-wrap: nowrap;
+            max-width: 1280px;
+            margin: 0 auto;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            /* Firefox */
         }
 
         .sticky-nav::-webkit-scrollbar {
             display: none;
-            /* Safari/Chrome */
         }
 
         @media(min-width: 1024px) {
@@ -1518,24 +1522,45 @@
             pointer-events: none !important;
         }
 
-        /* Banner Text Color - Reverted to Green for Breadcrumb */
+        /* Banner Text Color - Green for Breadcrumb */
         .breadcumb-title h4 {
             color: #ffffff !important;
         }
         .breadcumb-content ul li, 
         .breadcumb-content ul li a,
         .breadcumb-content ul li span {
-            color: #1f6b3a !important;
+            color: #1c6938 !important;
             font-weight: 600;
         }
 
-        /* Footer Text White */
-        .footer-widget-title h4,
+        /* Footer Text White & Opacity */
+        .footer-widget-title h4 {
+            color: #ffffff !important;
+            margin-bottom: 30px;
+        }
         .footer_desc,
+        .footer-widget-menu ul li,
         .footer-widget-menu ul li a,
+        .footer-menu ul li a,
+        .footer-contact-info p,
+        .footer-content p,
         .footer-bottom-content-copy p,
         .footer-bottom-content-copy p a {
-            color: #ffffff !important;
+            color: rgba(255, 255, 255, 0.6) !important;
+            line-height: 45px;
+            font-size: 16px;
+        }
+        
+        /* Specific List Refinement for Footer */
+        .footer-widget-menu ul,
+        .footer-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-widget-menu ul li,
+        .footer-menu ul li {
+            position: relative;
         }
 
         /* Project Gallery Custom Navigation */
@@ -1551,7 +1576,7 @@
             height: 44px;
             background: var(--primary);
             color: #fff;
-            border-radius: 4px;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1572,6 +1597,19 @@
         /* Project Gallery Hover Text White */
         .slide-overlay h4, .slide-overlay p {
             color: #ffffff !important;
+        }
+
+        /* Global Button Override for 1:1 Parity */
+        .btn-primary, .roadly_btn a, .download-btn, .btn-outline {
+            border-radius: 0 !important;
+            background-color: #1c6938 !important;
+            color: #fff !important;
+            border-color: #1c6938 !important;
+        }
+        .btn-outline {
+            background-color: transparent !important;
+            color: #1c6938 !important;
+            border: 2px solid #1c6938 !important;
         }
     </style>
 </head>
@@ -1618,8 +1656,11 @@
 
 	<!--========= Start Mobile Memu========== -->
 
-	<div class="mobile-menu-area sticky d-sm-block d-md-block d-lg-none">
+	<div class="mobile-menu-area sticky d-block d-lg-none">
 		<div class="mobile-menu">
+			<div class="mean-bar" style="background: #1c6938; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;">
+				<a href="index.html" style="color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; text-decoration: none; text-transform: uppercase;">SOHOOL</a>
+			</div>
 			<nav class="header-menu">
 				<ul class="nav_scroll">
 					<li><a href="index.html">Home</a></li>
@@ -1630,7 +1671,7 @@
 					<li><a href="clients.html">Clients</a></li>
 					<li><a href="contact.html">Contact</a></li>
 					<li class="mobile-cta-item" style="margin-top: 20px; text-align: center;">
-						<a href="https://sohooloman.com/assets/docs/Corporate-Profile.pdf" target="_blank" class="btn-primary" style="width: 100%; display: block; padding: 12px 20px;">Download Profile <i class="bi bi-arrow-right"></i></a>
+						<a href="https://sohooloman.com/assets/docs/Corporate-Profile.pdf" target="_blank" class="btn-primary" style="width: 100%; display: block; padding: 15px 30px; border-radius: 0;">Download Profile <i class="bi bi-arrow-right"></i></a>
 					</li>
 				</ul>
 			</nav>
@@ -2373,43 +2414,42 @@
                     </p>
                 </div>
                 <div class="read-more-btn" onclick="toggleReadMore('expandable-footer', this)">+ Read More</div>
-            </div>
-        </div>
-    </section>
-	<!--==================================================-->
-	<!-- Start roadly Footer Area -->
+  	<!--==================================================-->
+	<!-- Start roadly Footer Area-->
 	<!--==================================================-->
 	<section class="footer_area boxed">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-4 col-lg-4 col-md-6">
-					<div class="footer-widget-contact">
-						<div class="footer_logo">
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="footer-widget footer-logo">
+						<div class="footer-widget-logo">
 							<a href="index.html"><img src="https://sohooloman.com/assets/images/footer-logo.png" alt="footer-logo"></a>
 						</div>
-						<p class="footer_desc">Sohool Al Habiba Trading LLC (SAH) is a leading Omani company
+						<div class="footer-content">
+							<p>Sohool Al Habiba Trading LLC (SAH) is a leading Omani company
 							specializing in civil engineering and infrastructure services, with a strong focus on the
 							oil and gas sector.</p>
+						</div>
 						<div class="footer_social_icon">
 							<a href="#"><i class="fab fa-facebook-f"></i></a>
+							<a href="#"><i class="fab fa-twitter"></i></a>
+							<a href="#"><i class="fab fa-instagram"></i></a>
 							<a href="#"><i class="fab fa-linkedin-in"></i></a>
-							<a href="#"><i class="fa-brands fa-instagram"></i></a>
-							<a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2 col-lg-4 col-md-6">
-					<div class="footer-widget-content">
+				<div class="col-lg-2 col-md-6 col-sm-12">
+					<div class="footer-widget">
 						<div class="footer-widget-title">
 							<h4>Our Services</h4>
 						</div>
-						<div class="footer-widget-menu">
+						<div class="footer-menu">
 							<ul>
-								<li><a href="oilandgas-details.html"><i class="bi bi-chevron-double-right"></i> Oil &
+								<li><a href="oilandgas-details.html"><i class="bi bi-chevron-double-right"></i>Oil &amp;
 										Gas Field Services</a></li>
-								<li><a href="pdo-details.html"><i class="bi bi-chevron-double-right"></i> PDO
+								<li><a href="pdo-details.html"><i class="bi bi-chevron-double-right"></i>PDO
 										Maintenance</a></li>
-								<li><a href="earthandroad-details.html"><i class="bi bi-chevron-double-right"></i> Road
+								<li><a href="earthandroad-details.html"><i class="bi bi-chevron-double-right"></i>Road
 										Construction</a></li>
 								<li><a href="Manpower-details.html"><i class="bi bi-chevron-double-right"></i>Manpower
 										Supply</a></li>
@@ -2417,42 +2457,34 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-2 col-lg-4 col-md-6">
-					<div class="footer-widget-content">
+				<div class="col-lg-2 col-md-6 col-sm-12">
+					<div class="footer-widget">
 						<div class="footer-widget-title">
 							<h4>Short Links</h4>
 						</div>
-						<div class="footer-widget-menu">
+						<div class="footer-menu">
 							<ul>
-								<li><a href="index.html"><i class="bi bi-chevron-double-right"></i> Home</a></li>
-								<li><a href="about.html"><i class="bi bi-chevron-double-right"></i> About us</a></li>
-								<li><a href="strength.html"><i class="bi bi-chevron-double-right"></i> Our Strength</a>
-								</li>
-								<li><a href="projects.html"><i class="bi bi-chevron-double-right"></i> Projects</a></li>
-								<li><a href="clients.html"><i class="bi bi-chevron-double-right"></i> Clients</a></li>
+								<li><a href="index.html"><i class="bi bi-chevron-double-right"></i>Home</a></li>
+								<li><a href="about.html"><i class="bi bi-chevron-double-right"></i>About us</a></li>
+								<li><a href="strength.html"><i class="bi bi-chevron-double-right"></i>Our Strength</a></li>
+								<li><a href="projects.html"><i class="bi bi-chevron-double-right"></i>Projects</a></li>
+								<li><a href="clients.html"><i class="bi bi-chevron-double-right"></i>Clients</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-3 col-lg-4 col-md-6">
-					<div class="footer-widget-title">
-						<h4>Contact Info</h4>
-					</div>
-					<div class="footer-widget-menu">
-						<ul class="contact-info-list" style="list-style: none; padding: 0; margin: 0;">
-							<li style="display: flex; gap: 15px; margin-bottom: 15px;">
-								<i class="bi bi-geo-alt" style="color: var(--accent); font-size: 18px;"></i>
-								<span>P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman</span>
-							</li>
-							<li style="display: flex; gap: 15px; margin-bottom: 15px;">
-								<i class="bi bi-telephone" style="color: var(--accent); font-size: 18px;"></i>
-								<span>+968 9333 3618<br>+968 9288 6922</span>
-							</li>
-							<li style="display: flex; gap: 15px; margin-bottom: 15px;">
-								<i class="bi bi-envelope" style="color: var(--accent); font-size: 18px;"></i>
-								<span>jasim@sohooloman.com<br>general.manager@sohooloman.com</span>
-							</li>
-						</ul>
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="footer-widget">
+						<div class="footer-widget-title">
+							<h4>Contact Info</h4>
+						</div>
+						<div class="footer-contact-info">
+							<p>P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman</p>
+							<p>Phone: +968 9333 3618</p>
+							<p>Phone: +968 9288 6922</p>
+							<p>Email: jasim@sohooloman.com</p>
+							<p>general.manager@sohooloman.com </p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -2460,21 +2492,20 @@
 				<div class="col-md-12">
 					<div class="footer-bottom-content">
 						<div class="footer-bottom-content-copy">
-							<p>Copyright © <span id="year"></span> Sohool Al Habiba Trading LLC. All Rights Reserved |
-								Designed by <a href="https://midas.om" target="_blank"
-									title="Professional Web Design by Midas" rel="noopener">MIDAS</a></p>
+							<p>Copyright © <span id="year"></span> Sohool Al Habiba Trading LLC. All Rights Reserved | 
+							Designed by <a href="https://midas.om" title="Professional Web Design by Midas">MIDAS</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="footer-shape">
-				<img src="https://sohooloman.com/assets/images/general/footer-shape.png" alt="shape">
+				<img src="https://sohooloman.com/assets/images/general/footer-shape.png" alt="footer-shape">
 			</div>
 		</div>
 	</section>
 	<!--==================================================-->
 	<!-- End roadly Footer Area-->
-	<!--==================================================-->
+	<!--==================================================-->=============================================-->
 
     <button id="backToTop" title="Go to top">
         <i class="bi bi-arrow-up"></i>
