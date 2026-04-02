@@ -157,9 +157,16 @@
             font-family: var(--font-body) !important;
             word-wrap: break-word;
             overflow-wrap: break-word;
-            overflow-x: hidden;
+            /* Avoid overflow-x: hidden on body as it can break position: sticky in some browsers */
+            overflow-x: visible; 
             margin: 0;
             padding: 0;
+        }
+
+        /* Safer overflow management for mobile to ensure stickiness works */
+        .main-wrapper {
+            overflow: clip; 
+            width: 100%;
         }
 
         h1,
@@ -318,10 +325,10 @@
             background: #0f1d37 !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 5px 0; /* Reduced padding */
+            padding: 0 !important; /* Zero padding for ultra-compact 50px */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            height: 60px; /* Reduced from 70px */
+            height: 50px !important; /* Decreased from 60px */
             display: flex;
             align-items: center;
         }
@@ -330,39 +337,42 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            height: 100%; /* Fill the 50px */
         }
 
         .logo img {
-            height: 40px; /* Slightly smaller logo in sticky */
+            height: 32px !important; /* Further decreased to fit 50px */
             width: auto;
             display: block;
-            transition: height 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .roadly-header-area:not(.scrolled) .logo img {
             height: 44px;
         }
 
-        .nav-menu {
-            list-style: none;
-            display: flex;
+        .nav_scroll {
+            display: flex !important;
+            align-items: center !important;
+            flex-wrap: nowrap !important; /* Prevent wrapping broooo */
             gap: 25px;
             margin: 0;
             padding: 0;
-            transition: gap 0.3s ease;
+            list-style: none;
         }
 
-        /* Medium screens responsiveness to prevent wrapping */
-        @media (max-width: 1200px) {
-            .nav-menu {
-                gap: 15px;
+        /* Responsive Nav Compaction */
+        @media (max-width: 1350px) {
+            .nav_scroll {
+                gap: 15px !important;
             }
-            .nav-menu a {
-                font-size: 13px;
+            .nav_scroll li a {
+                font-size: clamp(11px, 1vw, 13px) !important;
+                letter-spacing: 0.3px !important;
             }
-            .download-btn {
-                padding: 10px 20px;
-                font-size: 15px;
+            .roadly_btn a {
+                padding: 10px 15px !important;
+                font-size: 14px !important;
             }
         }
 
@@ -870,11 +880,11 @@
         .sticky-nav-container {
             position: sticky !important;
             position: -webkit-sticky !important;
-            top: 60px !important; /* Matches compacted header height */
+            top: 50px !important; /* Matches ultra-compact header height */
             background: #ffffff !important;
-            z-index: 998 !important; /* Below main header z-index: 1000 */
+            z-index: 998 !important; 
             border-bottom: 1px solid var(--border) !important;
-            padding: 10px 0 !important; /* Compact padding */
+            padding: 8px 0 !important; /* Even more compact */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
         }
 
@@ -1679,12 +1689,13 @@
             border: 2px solid #1c6938 !important;
         }
 
-        /* FAQs Tab Stickiness */
+        /* FAQs Tabs Sticky Positioning */
         .product-menu {
             position: sticky !important;
-            top: 112px !important; /* header(60) + sticky-nav(52) = 112px */
+            top: 102px !important; /* header(50px) + sticky-nav(approx 52px) = 102px */
             z-index: 997 !important;
-            background: #ffffff;
+            background: #fff;
+            padding: 15px 0; /* Compact padding */
             border-bottom: 1px solid var(--border);
             margin-bottom: 0;
         }
@@ -2109,7 +2120,7 @@
             </div>
             <div class="carousel-track" id="gallery-carousel">
                 <div class="carousel-slide gallery-slide">
-                    <img src="https://sohooloman.com/assets/images/gallery/project1.webp"
+                    <img src="https://www.magicrete.in/assets/uploads/2026/01/projectmaster/lodha-world-towers_1769755647.webp"
                         alt="Project 1">
                     <div class="slide-overlay">
                         <h4>Lodha World Towers</h4>
@@ -2118,7 +2129,7 @@
                     </div>
                 </div>
                 <div class="carousel-slide gallery-slide">
-                    <img src="https://sohooloman.com/assets/images/gallery/project2.webp"
+                    <img src="https://www.magicrete.in/assets/uploads/2024/09/projectmaster/christ-university-1_1727081330.jpg"
                         alt="Project 2">
                     <div class="slide-overlay">
                         <h4>Christ University</h4>
@@ -2127,7 +2138,7 @@
                     </div>
                 </div>
                 <div class="carousel-slide gallery-slide">
-                    <img src="https://sohooloman.com/assets/images/gallery/project3.webp"
+                    <img src="https://www.magicrete.in/assets/uploads/2024/04/projectmaster/iit-ropar-rupnagar--punjab_1714119001.webp"
                         alt="Project 3">
                     <div class="slide-overlay">
                         <h4>IIT Ropar</h4>
@@ -2136,7 +2147,7 @@
                     </div>
                 </div>
                 <div class="carousel-slide gallery-slide">
-                    <img src="https://sohooloman.com/assets/images/gallery/project4.webp"
+                    <img src="https://www.magicrete.in/assets/uploads/2024/04/projectmaster/iit-ropar-rupnagar--punjab_1714119001.webp"
                         alt="Project 4">
                     <div class="slide-overlay">
                         <h4>Surat Diamond Bourse</h4>
