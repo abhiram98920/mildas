@@ -306,27 +306,26 @@
             border-top: 1.5px solid #1c6938;
             border-bottom: 1.5px solid #1c6938;
             opacity: 0.8;
-        }
-
-        /* Site Header */
-        .roadly-header-area {
+        }        .roadly-header-area {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
             background: transparent;
-            padding: 20px 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 !important; /* Managed by item padding for 1:1 parity */
+            transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
             border-bottom: 1px solid transparent;
             height: 140px;
+            display: flex;
+            align-items: center;
         }
 
         .roadly-header-area.scrolled {
             background: #0f1d37 !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 0 !important;
+            padding: 0 !important; /* Zero container padding to match 98px exactly */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             height: 98px !important;
@@ -1751,8 +1750,8 @@
     <!-- HEADER SECTION: Main Navigation and Branding               -->
     <!-- ============================================================== -->
     <div class="roadly-header-area inner-style" id="sticky-header">
-        <div class="container-fluid">
-            <div class="row header-bottom align-items-center">
+        <div class="container-fluid h-100">
+            <div class="row header-bottom align-items-center h-100">
                 <div class="col-lg-2">
                     <div class="header-logo">
                         <a class="active_logo" href="index.html"><img
