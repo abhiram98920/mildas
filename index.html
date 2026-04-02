@@ -77,36 +77,50 @@
             display: inline-block !important;
         }
 
-        #backToTop {
+        .prgoress_indicator {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 50px;
             height: 50px;
-            background: var(--primary);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: block;
+            border-radius: 50px;
+            box-shadow: inset 0 0 0 2px rgba(28, 105, 56, 0.2);
+            z-index: 10000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 9999;
+            transition: all 200ms linear;
+            background: #fff;
         }
 
-        #backToTop.show {
+        .prgoress_indicator.active-progress {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
-        #backToTop:hover {
-            background: var(--primary-hover);
-            transform: translateY(-5px);
+        .prgoress_indicator::after {
+            position: absolute;
+            content: "\f106";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            text-align: center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        .prgoress_indicator svg.progress-circle path {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 4;
+            box-sizing: border-box;
+            transition: all 200ms linear;
         }
 
         @media (max-width: 768px) {
@@ -1449,6 +1463,7 @@
             }
 
             .sticky-nav-container {
+                top: 90px;
                 padding: 10px 0;
                 margin-bottom: 30px;
             }
@@ -1531,9 +1546,8 @@
             }
         }
 
-        /* Hide the SOHOOL integrated scrollUp to keep only the green #backToTop */
-        #scrollUp,
-        .prgoress_indicator {
+        /* Scroll Up Indicator Style Refining */
+        #scrollUp {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
@@ -1566,7 +1580,7 @@
         .footer-content p,
         .footer-bottom-content-copy p,
         .footer-bottom-content-copy p a {
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: #ffffff !important;
             line-height: 45px;
             font-size: 16px;
         }
@@ -1639,6 +1653,25 @@
             color: #1c6938 !important;
             border: 2px solid #1c6938 !important;
         }
+
+        /* FAQs Tab Stickiness */
+        .product-menu {
+            position: sticky;
+            top: 152px; /* Header (90px) + Section Nav (approx 62px) */
+            z-index: 998;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-menu ul.tab {
+            border-bottom: none;
+        }
+
+        @media (max-width: 1024px) {
+            .product-menu {
+                top: 130px;
+            }
+        }
     </style>
 </head>
 
@@ -1661,13 +1694,13 @@
                 <div class="col-lg-10">
                     <div class="header-menu">
                         <ul class="nav_scroll">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us<span></span></a></li>
-                            <li><a href="strength.html">Strenght</a></li>
-                            <li><a href="sectors.html">Sectors</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="clients.html">Clients</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="https://midasclients.com/sohool/index.html">Home</a></li>
+                            <li><a href="https://midasclients.com/sohool/about.html">About Us<span></span></a></li>
+                            <li><a href="https://midasclients.com/sohool/strength.html">Strenght</a></li>
+                            <li><a href="https://midasclients.com/sohool/sectors.html">Sectors</a></li>
+                            <li><a href="https://midasclients.com/sohool/projects.html">Projects</a></li>
+                            <li><a href="https://midasclients.com/sohool/clients.html">Clients</a></li>
+                            <li><a href="https://midasclients.com/sohool/contact.html">Contact</a></li>
                         </ul>
                         <div class="header_right">
                             <div class="header-button roadly_btn">
@@ -1695,13 +1728,13 @@
             </div>
             <nav class="header-menu">
                 <ul class="nav_scroll">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us<span></span></a></li>
-                    <li><a href="strength.html">Strenght</a></li>
-                    <li><a href="sectors.html">Sectors</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="clients.html">Clients</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://midasclients.com/sohool/index.html">Home</a></li>
+                    <li><a href="https://midasclients.com/sohool/about.html">About Us<span></span></a></li>
+                    <li><a href="https://midasclients.com/sohool/strength.html">Strenght</a></li>
+                    <li><a href="https://midasclients.com/sohool/sectors.html">Sectors</a></li>
+                    <li><a href="https://midasclients.com/sohool/projects.html">Projects</a></li>
+                    <li><a href="https://midasclients.com/sohool/clients.html">Clients</a></li>
+                    <li><a href="https://midasclients.com/sohool/contact.html">Contact</a></li>
                     <li class="mobile-cta-item" style="margin-top: 20px; text-align: center;">
                         <a href="https://sohooloman.com/assets/docs/Corporate-Profile.pdf" target="_blank"
                             class="btn-primary"
@@ -1786,7 +1819,7 @@
                     6000mm x 600mm x 75mm/100mm/120mm/150mm/200mm</p>
 
                 <div style="margin-top: 35px; display: flex; gap: 20px;">
-                    <a href="#" class="btn-primary">
+                    <a href="https://midasclients.com/sohool/service.html" class="btn-primary">
                         Find A Dealer
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -1816,63 +1849,43 @@
             <h2 class="section-title">Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg></div>
+                    <div class="feature-icon-wrapper"><img src="./corrosion .webp" alt="corrosion"
+                            style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <h3>Corrosion Protected Steel Reinforced</h3>
                     <p>AAC wall panels are corrosion-protected steel-reinforced, ensuring enduring and resilient
                         performance in construction projects for sustained longevity.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
-                            <line x1="16" y1="8" x2="2" y2="22" />
-                            <line x1="17.5" y1="15" x2="9" y2="6.5" />
-                        </svg></div>
+                    <div class="feature-icon-wrapper"><img src="./light weight.webp" alt="lightweight"
+                            style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <h3>Lightweight</h3>
                     <p>AAC wall panels have an exceptional lightweight design, minimizing structural load while
                         maintaining robustness and ensuring long-lasting integrity for your building.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5" />
-                            <path
-                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                        </svg></div>
+                    <div class="feature-icon-wrapper"><img src="./thermal insulation.webp" alt="thermal insulation"
+                            style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <h3>Thermal Insulation</h3>
                     <p>AAC Wall Panels offer superior insulation with ~0.16 W/m·K thermal conductivity, enabling up to
                         30% air conditioning energy savings in buildings across diverse climates.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <path
-                                d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-                        </svg></div>
+                    <div class="feature-icon-wrapper"><img src="./fire resitant.webp" alt="fire resistant"
+                            style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <h3>Fire Resistant</h3>
                     <p>AAC Wall Panels boast a unique cellular structure, offering a superior 4-hour fire rating. Their
                         melting point exceeds 1600 degrees Celsius, ensuring exceptional fire resistance.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10" />
-                            <polyline points="12 6 12 12 16 14" />
-                        </svg></div>
+                    <div class="feature-icon-wrapper"><img src="./4xfaster construction.webp" alt="fast construction"
+                            style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <h3>4x Faster Construction</h3>
                     <p>Boasting 4 times faster construction than AAC blocks, each AAC Wall panel equals 15 blocks,
                         slashing project timelines dramatically for swift and efficient construction.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon-wrapper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                            <line x1="3" y1="9" x2="21" y2="9" />
-                            <line x1="9" y1="21" x2="9" y2="9" />
-                        </svg></div>
+                    <div class="feature-icon-wrapper"><img src="./no coping bond beam.webp" alt="no coping"
+                            style="width: 100%; height: 100%; object-fit: contain;"></div>
                     <h3>No Coping/Bond Beam</h3>
                     <p>AAC Wall Panels do not require coping or bond beams for wall heights up to 6 meters, offering
                         exceptional structural stability. This eliminates additional reinforcement, reducing
@@ -2483,13 +2496,13 @@
 						</div>
 						<div class="footer-widget-menu">
 							<ul>
-								<li><a href="oilandgas-details.html"><i class="bi bi-chevron-double-right"></i> Oil &
+								<li><a href="https://sohooloman.com/oilandgas-details.html"><i class="bi bi-chevron-double-right"></i> Oil &
 										Gas Field Services</a></li>
-								<li><a href="pdo-details.html"><i class="bi bi-chevron-double-right"></i> PDO
+								<li><a href="https://sohooloman.com/pdo-details.html"><i class="bi bi-chevron-double-right"></i> PDO
 										Maintenance</a></li>
-								<li><a href="earthandroad-details.html"><i class="bi bi-chevron-double-right"></i> Road
+								<li><a href="https://sohooloman.com/earthandroad-details.html"><i class="bi bi-chevron-double-right"></i> Road
 										Construction</a></li>
-								<li><a href="Manpower-details.html"><i class="bi bi-chevron-double-right"></i>Manpower
+								<li><a href="https://sohooloman.com/Manpower-details.html"><i class="bi bi-chevron-double-right"></i>Manpower
 										Supply</a></li>
 							</ul>
 						</div>
@@ -2517,9 +2530,9 @@
 						<h4>Contact Info</h4>
 					</div>
 					<div class="footer-widget-menu">
-						<p class="footer_desc">P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman <br> Phone: +968 9333
+						<p class="footer_desc" style="line-height: 1.6; margin-top: 5px;">P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman <br> Phone: +968 9333
 							3618 <br>Phone: +968 9288 6922 <br>Email: jasim@sohooloman.com <br>
-							general.manager@sohooloman.com</p>
+							<span style="white-space: nowrap;">general.manager@sohooloman.com</span></p>
 					</div>
 				</div>
 			</div>
@@ -2543,9 +2556,7 @@
 	<!-- End roadly Footer Area-->
 	<!--==================================================-->
 
-    <button id="backToTop" title="Go to top">
-        <i class="bi bi-arrow-up"></i>
-    </button>
+    <!-- Back to Top Replacement already in progress indicator below -->
 
 
 	<!--==================================================-->
@@ -2607,7 +2618,41 @@
         const stickyNav = document.querySelector('.sticky-nav');
         let currentSectionId = '';
 
-        const backToTop = document.getElementById('backToTop');
+        // Progress Indicator Logic
+        (function($) { "use strict";
+            $(document).ready(function(){
+                var progressPath = document.querySelector('.prgoress_indicator path');
+                var pathLength = progressPath.getTotalLength();
+                progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+                progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+                progressPath.style.strokeDashoffset = pathLength;
+                progressPath.getBoundingClientRect();
+                progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+                var updateProgress = function () {
+                    var scroll = $(window).scrollTop();
+                    var height = $(document).height() - $(window).height();
+                    var progress = pathLength - (scroll * pathLength / height);
+                    progressPath.style.strokeDashoffset = progress;
+                }
+                updateProgress();
+                $(window).scroll(updateProgress);
+                var offset = 50;
+                var duration = 550;
+                $(window).on('scroll', function() {
+                    if ($(this).scrollTop() > offset) {
+                        $('.prgoress_indicator').addClass('active-progress');
+                    } else {
+                        $('.prgoress_indicator').removeClass('active-progress');
+                    }
+                });
+                $('.prgoress_indicator').on('click', function(event) {
+                    event.preventDefault();
+                    $('html, body').animate({scrollTop: 0}, duration);
+                    return false;
+                })
+            });
+        })(jQuery);
+
         const header = document.getElementById('sticky-header');
         const stickyNavContainer = document.querySelector('.sticky-nav-container');
 
@@ -2652,21 +2697,7 @@
                     }
                 });
             }
-
-            // Back to Top visibility
-            if (scrollY > 300) {
-                if (backToTop) backToTop.classList.add('show');
-            } else {
-                if (backToTop) backToTop.classList.remove('show');
-            }
         });
-
-        if (backToTop) {
-            backToTop.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
 
         // Gallery scroll function
         function scrollGallery(direction) {
