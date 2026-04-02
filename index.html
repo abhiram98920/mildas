@@ -149,7 +149,7 @@
             background: var(--primary) !important;
             color: #fff !important;
             text-decoration: none !important;
-            border-radius: 50px !important;
+            border-radius: 4px !important;
             font-weight: 600 !important;
             font-size: 16px !important;
             transition: all 0.3s ease !important;
@@ -168,7 +168,7 @@
             background: transparent !important;
             color: var(--dark) !important;
             text-decoration: none !important;
-            border-radius: 50px !important;
+            border-radius: 4px !important;
             font-weight: 600 !important;
             border: 2px solid var(--border) !important;
             transition: all 0.3s ease !important;
@@ -184,7 +184,7 @@
             background: var(--primary) !important;
             color: #fff !important;
             padding: 12px 25px !important;
-            border-radius: 50px !important;
+            border-radius: 4px !important;
             display: inline-flex !important;
             align-items: center !important;
             gap: 10px !important;
@@ -268,7 +268,7 @@
         }
 
         /* Site Header */
-        .site-header {
+        .roadly-header-area {
             position: fixed;
             top: 0;
             left: 0;
@@ -281,12 +281,15 @@
         }
 
         .roadly-header-area.scrolled {
-            background: rgba(8, 18, 35, 0.9);
+            background: rgba(8, 18, 35, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 10px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            height: 90px;
+            display: flex;
+            align-items: center;
         }
 
         .header-content {
@@ -809,7 +812,7 @@
         /* Sticky Navigation */
         .sticky-nav-container {
             position: sticky;
-            top: 75px; /* Height of site-header */
+            top: 90px; /* Matching new scrolled header height */
             background: rgba(255, 255, 255, 0.98);
             z-index: 100;
             backdrop-filter: blur(10px);
@@ -1193,7 +1196,7 @@
         /* FAQs Tabbed Interface */
         .faq-cal {
             width: 100%;
-            max-width: 900px;
+            max-width: 1280px;
             margin: 0 auto;
         }
 
@@ -1515,12 +1518,15 @@
             pointer-events: none !important;
         }
 
-        /* Banner Text White */
-        .breadcumb-title h4, 
+        /* Banner Text Color - Reverted to Green for Breadcrumb */
+        .breadcumb-title h4 {
+            color: #ffffff !important;
+        }
         .breadcumb-content ul li, 
         .breadcumb-content ul li a,
         .breadcumb-content ul li span {
-            color: #ffffff !important;
+            color: #1f6b3a !important;
+            font-weight: 600;
         }
 
         /* Footer Text White */
@@ -1529,6 +1535,42 @@
         .footer-widget-menu ul li a,
         .footer-bottom-content-copy p,
         .footer-bottom-content-copy p a {
+            color: #ffffff !important;
+        }
+
+        /* Project Gallery Custom Navigation */
+        .gallery-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding-right: 24px;
+        }
+        .gallery-nav-btn {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+        }
+        .gallery-nav-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Hide View All Gallery Button */
+        .btn-view-all {
+            display: none !important;
+        }
+
+        /* Project Gallery Hover Text White */
+        .slide-overlay h4, .slide-overlay p {
             color: #ffffff !important;
         }
     </style>
@@ -1934,14 +1976,22 @@
                     </div>
                 </div>
             </div>
+            <!-- View All Button (Hidden for now) -->
+            <div style="text-align: center; margin-top: 40px;" class="btn-view-all">
+                <a href="#" class="btn-primary btn-view-all">View All Gallery</a>
+            </div>
         </div>
     </section>
 
     <!-- Project Gallery -->
     <section id="gallery">
-        <h2 class="section-title">Project Gallery</h2>
         <div class="container">
-            <div class="carousel-track">
+            <h2 class="section-title">Project Gallery</h2>
+            <div class="gallery-nav">
+                <button class="gallery-nav-btn" onclick="scrollGallery(-1)"><i class="bi bi-chevron-left"></i></button>
+                <button class="gallery-nav-btn" onclick="scrollGallery(1)"><i class="bi bi-chevron-right"></i></button>
+            </div>
+            <div class="carousel-track" id="gallery-carousel">
                 <div class="carousel-slide gallery-slide">
                     <img src="https://www.magicrete.in/assets/uploads/2026/01/projectmaster/lodha-world-towers_1769755647.webp"
                         alt="Project 1">
@@ -1980,7 +2030,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px;">
-                <a href="https://www.magicrete.in/our-project" target="_blank" class="btn-outline">View All Gallery
+                <a href="https://www.magicrete.in/our-project" target="_blank" class="btn-outline btn-view-all">View All Gallery
                     &rarr;</a>
             </div>
         </div>
@@ -2215,6 +2265,10 @@
                     </div>
                 </div>
             </div>
+            <!-- View All Button (Hidden for now) -->
+            <div style="text-align: center; margin-top: 40px;" class="btn-view-all">
+                <a href="#" class="btn-primary btn-view-all">View All Gallery</a>
+            </div>
         </div>
     </section>
 
@@ -2239,6 +2293,10 @@
                         <a href="#" class="btn-primary">Read More &rarr;</a>
                     </div>
                 </div>
+            </div>
+            <!-- View All Button (Hidden for now) -->
+            <div style="text-align: center; margin-top: 40px;" class="btn-view-all">
+                <a href="#" class="btn-primary btn-view-all">View All Gallery</a>
             </div>
         </div>
     </section>
@@ -2381,9 +2439,20 @@
 						<h4>Contact Info</h4>
 					</div>
 					<div class="footer-widget-menu">
-						<p class="footer_desc">P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman <br> Phone: +968 9333
-							3618 <br>Phone: +968 9288 6922 <br>Email: jasim@sohooloman.com <br>
-							general.manager@sohooloman.com</p>
+						<ul class="contact-info-list" style="list-style: none; padding: 0; margin: 0;">
+							<li style="display: flex; gap: 15px; margin-bottom: 15px;">
+								<i class="bi bi-geo-alt" style="color: var(--accent); font-size: 18px;"></i>
+								<span>P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman</span>
+							</li>
+							<li style="display: flex; gap: 15px; margin-bottom: 15px;">
+								<i class="bi bi-telephone" style="color: var(--accent); font-size: 18px;"></i>
+								<span>+968 9333 3618<br>+968 9288 6922</span>
+							</li>
+							<li style="display: flex; gap: 15px; margin-bottom: 15px;">
+								<i class="bi bi-envelope" style="color: var(--accent); font-size: 18px;"></i>
+								<span>jasim@sohooloman.com<br>general.manager@sohooloman.com</span>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -2472,7 +2541,7 @@
         let currentSectionId = '';
 
         const backToTop = document.getElementById('backToTop');
-        const header = document.querySelector('.roadly-header-area');
+        const header = document.getElementById('sticky-header');
         const stickyNavContainer = document.querySelector('.sticky-nav-container');
 
         window.addEventListener('scroll', () => {
@@ -2480,13 +2549,13 @@
 
             // Header glassmorphism toggle
             if (scrollY > 50) {
-                header.classList.add('scrolled');
-                if (stickyNavContainer) {
+                if (header) header.classList.add('scrolled');
+                if (stickyNavContainer && header) {
                     stickyNavContainer.style.top = header.offsetHeight + 'px';
                 }
             } else {
-                header.classList.remove('scrolled');
-                if (stickyNavContainer) {
+                if (header) header.classList.remove('scrolled');
+                if (stickyNavContainer && header) {
                     stickyNavContainer.style.top = header.offsetHeight + 'px';
                 }
             }
@@ -2530,6 +2599,13 @@
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        }
+
+        // Gallery scroll function
+        function scrollGallery(direction) {
+            const track = document.getElementById('gallery-carousel');
+            const scrollAmount = 400; // Adjust as needed
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
         }
     </script>
 <!-- JS block injected -->
