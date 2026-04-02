@@ -93,12 +93,13 @@
         }
 
         .banner h1 {
-            font-size: clamp(28px, 6vw, 64px);
-            font-weight: 800;
-            margin-bottom: 24px;
-            color: #fff;
-            line-height: 1.1;
-            letter-spacing: -1px;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .breadcrumb span {
@@ -109,25 +110,24 @@
         }
 
         .breadcrumb {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1c6938; /* SOHOOL Green */
+            font-size: 15px;
+            font-weight: 500;
+            color: #1f6b3a;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             text-transform: none;
-            letter-spacing: 0.5px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .breadcrumb::before,
         .breadcrumb::after {
             content: "";
-            width: 30px;
-            height: 1px;
-            background: #1c6938;
-            opacity: 0.5;
+            width: 40px;
+            height: 2px;
+            background: #1f6b3a;
+            opacity: 0.6;
         }
 
         /* Site Header */
@@ -162,6 +162,7 @@
             height: 44px;
             width: auto;
             display: block;
+            filter: brightness(0) invert(1);
         }
 
         .nav-menu {
@@ -178,14 +179,13 @@
             font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             transition: 0.3s;
             font-family: var(--font-head);
             opacity: 0.9;
         }
-
+        
         .nav-menu a:hover {
-            color: #ffffff;
             opacity: 1;
         }
 
@@ -193,19 +193,31 @@
             background: #1c6938;
             color: #ffffff;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 28px;
             border-radius: 4px;
-            font-weight: 700;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 15px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: 0.3s;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn span {
+            letter-spacing: 0.2px;
+        }
+
+        .download-btn svg {
+            transition: transform 0.3s ease;
         }
 
         .download-btn:hover {
             background: #154c29;
             transform: translateY(-2px);
+        }
+
+        .download-btn:hover svg {
+            transform: translate(2px, -2px);
         }
 
         .mobile-toggle {
@@ -414,6 +426,34 @@
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
+        }
+
+        .dots-grid {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .dots-grid span {
+            width: 4px;
+            height: 4px;
+            background: #d2ad35;
+            border-radius: 50%;
+        }
+
+        .wavy-line {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 300px;
+            opacity: 0.6;
+            pointer-events: none;
         }
 
         @media (max-width: 1024px) {
@@ -1343,25 +1383,22 @@
             </div>
         </div>
     </header>
-
     <section class="banner">
-        <div class="dots">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+        <div class="dots-grid">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="wavy-line">
+            <svg viewBox="0 0 500 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 50C100 0 150 100 250 50C350 0 400 100 500 50" stroke="#e53e3e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
         </div>
 
         <div class="container banner-content">
