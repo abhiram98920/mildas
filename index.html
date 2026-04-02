@@ -325,10 +325,10 @@
             background: #0f1d37 !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
-            padding: 0 !important; /* Zero container padding to match 98px exactly */
+            padding: 0 !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            height: 98px !important;
+            height: 70px !important; /* Reduced from 98px */
             display: flex;
             align-items: center;
         }
@@ -364,14 +364,18 @@
         .nav_scroll li a {
             white-space: nowrap !important;
             display: block;
-            padding: 35px 29px 35px 6px !important; /* Exact reference padding */
-            font-size: 15px !important; /* Exact reference size */
+            padding: 35px 29px 35px 6px !important; /* Initial tall state */
+            font-size: 15px !important;
             line-height: 28px !important;
             text-transform: uppercase !important;
             color: #ffffff !important;
             transition: all 0.3s ease;
             font-family: var(--font-head);
-            background: transparent !important; /* Remove broken white boxes */
+            background: transparent !important;
+        }
+
+        .roadly-header-area.scrolled .nav_scroll li a {
+            padding: 21px 29px 21px 6px !important; /* Reduced to fit 70px height */
         }
 
         .nav_scroll li a:hover {
@@ -898,7 +902,7 @@
         .sticky-nav-container {
             position: sticky !important;
             position: -webkit-sticky !important;
-            top: 98px !important; 
+            top: 70px !important; /* Matches new 70px compact header height */
             background: #ffffff !important;
             z-index: 998 !important; 
             border-bottom: 1px solid var(--border) !important;
@@ -1307,7 +1311,7 @@
         /* FAQs Tabs Sticky Positioning */
         .product-menu {
             position: sticky !important;
-            top: 150px !important; /* Matches 98px + 52px nav */
+            top: 122px !important; /* header(70px) + sticky-nav(52px) approx = 122px */
             z-index: 997 !important;
             background: #fff;
             padding: 15px 0;
