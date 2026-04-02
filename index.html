@@ -225,25 +225,31 @@
 
         /* Footer */
         .site-footer {
-            background: #081223; /* Dark Industrial Blue/Black */
+            background-color: #081223;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='500' opacity='0.1'%3E%3Ccircle cx='100' cy='100' r='1.5' fill='white'/%3E%3Ccircle cx='110' cy='105' r='1.5' fill='white'/%3E%3Ccircle cx='120' cy='115' r='1.5' fill='white'/%3E%3Ccircle cx='300' cy='200' r='1.5' fill='white'/%3E%3Ccircle cx='315' cy='210' r='1.5' fill='white'/%3E%3Ccircle cx='330' cy='190' r='1.5' fill='white'/%3E%3Ccircle cx='500' cy='150' r='1.5' fill='white'/%3E%3Ccircle cx='510' cy='160' r='1.5' fill='white'/%3E%3Ccircle cx='525' cy='145' r='1.5' fill='white'/%3E%3Ccircle cx='540' cy='170' r='1.5' fill='white'/%3E%3Ccircle cx='700' cy='250' r='1.5' fill='white'/%3E%3Ccircle cx='710' cy='240' r='1.5' fill='white'/%3E%3Ccircle cx='720' cy='260' r='1.5' fill='white'/%3E%3Ccircle cx='800' cy='80' r='1.5' fill='white'/%3E%3Ccircle cx='815' cy='75' r='1.5' fill='white'/%3E%3Ccircle cx='830' cy='95' r='1.5' fill='white'/%3E%3Ccircle cx='200' cy='300' r='1.5' fill='white'/%3E%3Ccircle cx='210' cy='310' r='1.5' fill='white'/%3E%3Ccircle cx='220' cy='290' r='1.5' fill='white'/%3E%3Ccircle cx='230' cy='320' r='1.5' fill='white'/%3E%3Ccircle cx='450' cy='350' r='1.5' fill='white'/%3E%3Ccircle cx='460' cy='340' r='1.5' fill='white'/%3E%3Ccircle cx='470' cy='360' r='1.5' fill='white'/%3E%3Ccircle cx='600' cy='380' r='1.5' fill='white'/%3E%3Ccircle cx='610' cy='370' r='1.5' fill='white'/%3E%3Ccircle cx='620' cy='390' r='1.5' fill='white'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
             color: #ffffff;
-            padding: 80px 0 0;
+            padding: 80px 0 40px;
             font-family: var(--font-body);
             position: relative;
             overflow: hidden;
             width: 100%;
-            margin-bottom: 0;
         }
 
-        .site-footer::after {
+        .site-footer::before {
             content: "";
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(28, 105, 56, 0.05) 0%, transparent 70%);
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(28, 105, 56, 0.08) 0%, transparent 70%);
             z-index: 1;
+            pointer-events: none;
+        }
+
+        .site-footer .logo img {
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+            margin-bottom: 25px;
         }
 
         .footer-grid {
@@ -283,10 +289,10 @@
         }
 
         .social-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 38px;
+            height: 38px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -294,11 +300,12 @@
             color: #ffffff;
             text-decoration: none;
             transition: 0.3s;
+            font-size: 14px;
         }
 
         .social-icon:hover {
-            background: var(--primary);
-            border-color: var(--primary);
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
         }
 
@@ -324,10 +331,11 @@
 
         .footer-links a::before {
             content: "›";
-            color: var(--primary);
-            font-size: 20px;
+            color: #ffffff;
+            opacity: 0.5;
+            font-size: 18px;
             line-height: 0;
-            margin-top: -2px;
+            margin-top: -1px;
         }
 
         .footer-links a:hover {
@@ -356,15 +364,19 @@
         }
 
         .footer-bottom {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 25px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: transparent;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             position: relative;
             z-index: 2;
             width: 100%;
+        }
+
+        .footer-bottom .container {
+            border-top: none;
         }
 
         .footer-bottom a {
@@ -374,22 +386,29 @@
 
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
+            bottom: 40px;
+            right: 40px;
+            width: 44px;
+            height: 44px;
+            background: #1c6938;
             color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            z-index: 99;
-            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             visibility: hidden;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            background: #154c29;
         }
 
         .back-to-top.show {
@@ -2091,21 +2110,19 @@
                 <ul class="contact-info">
                     <li>
                         <span>
-                            <b>Address:</b>
-                            P.O. Box: 1985, P.C.: 133 Muscat, Sultanate of Oman.
+                            P.O. Box: 1985, P.C.: 133 Muscat,<br>
+                            Sultanate of Oman
                         </span>
                     </li>
                     <li>
                         <span>
-                            <b>Phone:</b>
-                            +968 9333 3618<br>
-                            +968 9288 6922
+                            Phone: +968 9333 3618<br>
+                            Phone: +968 9288 6922
                         </span>
                     </li>
-                    <li>
+                    <li style="padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 15px;">
                         <span>
-                            <b>Email:</b>
-                            jasim@sohooloman.com<br>
+                            Email: jasim@sohooloman.com<br>
                             general.manager@sohooloman.com
                         </span>
                     </li>
