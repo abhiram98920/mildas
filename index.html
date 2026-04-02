@@ -319,6 +319,25 @@
             padding: 20px 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-bottom: 1px solid transparent;
+            height: 140px;
+        }
+
+        .header-top-bar {
+            background-color: #1c6938;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+            color: #fff;
+            transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .roadly-header-area {
+            transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+        }
+
+        .roadly-header-area.scrolled .header-top-bar {
+            display: none;
         }
 
         .roadly-header-area.scrolled {
@@ -328,7 +347,7 @@
             padding: 0 !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            height: 50px !important;
+            height: 98px !important;
             display: flex;
             align-items: center;
         }
@@ -337,47 +356,60 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 50px;
+            height: 100%;
         }
 
         .logo img {
-            height: 30px !important; /* Smaller sticky logo */
+            height: 50px !important; /* Larger logo to match taller header */
             width: auto;
             display: block;
-            transition: height 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .roadly-header-area:not(.scrolled) .logo img {
-            height: 44px;
+            height: 60px;
         }
 
         .nav_scroll {
             display: flex !important;
             align-items: center !important;
             flex-wrap: nowrap !important;
-            gap: 25px;
+            gap: 0; /* Gaps handled by padding now */
             margin: 0;
             padding: 0;
             list-style: none;
         }
 
         .nav_scroll li a {
-            white-space: nowrap !important; /* Prevent About Us from wrapping broooo */
+            white-space: nowrap !important;
             display: block;
+            padding: 35px 29px 35px 6px !important; /* Exact reference padding */
+            font-size: 15px !important; /* Exact reference size */
+            line-height: 28px !important;
+            text-transform: uppercase !important;
+            color: #ffffff !important;
             transition: all 0.3s ease;
+            font-family: var(--font-head);
+            background: transparent !important; /* Remove broken white boxes */
         }
 
-        /* Responsive Nav Compaction */
-        @media (max-width: 1350px) {
-            .nav_scroll {
-                gap: 12px !important;
+        .nav_scroll li a:hover {
+            color: var(--accent) !important;
+        }
+
+        /* Mobile Breakpoint for Header */
+        @media (max-width: 991px) {
+            .roadly-header-area {
+                display: none !important; /* Hide desktop header */
             }
-            .nav_scroll li a {
-                font-size: 13px !important;
+            .mobile-menu-area {
+                display: block !important;
             }
-            .header-button.roadly_btn a {
-                padding: 10px 20px !important;
-                font-size: 14px !important;
+        }
+
+        @media (min-width: 992px) {
+            .mobile-menu-area {
+                display: none !important;
             }
         }
 
@@ -885,12 +917,23 @@
         .sticky-nav-container {
             position: sticky !important;
             position: -webkit-sticky !important;
-            top: 50px !important; /* Matches ultra-compact header height */
+            top: 98px !important; 
             background: #ffffff !important;
             z-index: 998 !important; 
             border-bottom: 1px solid var(--border) !important;
-            padding: 8px 0 !important; /* Even more compact */
+            padding: 12px 0 !important;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        @media (max-width: 1024px) {
+            .sticky-nav-container {
+                top: 60px !important; 
+                z-index: 999 !important;
+            }
+            .product-menu {
+                top: 112px !important; 
+                z-index: 998 !important;
+            }
         }
 
         .sticky-nav {
@@ -1278,6 +1321,16 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border);
             overflow: visible; /* Changed to visible for internal sticky tabs */
+        }
+
+        /* FAQs Tabs Sticky Positioning */
+        .product-menu {
+            position: sticky !important;
+            top: 150px !important; /* Matches 98px + 52px nav */
+            z-index: 997 !important;
+            background: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .product-menu .tab {
@@ -1716,6 +1769,21 @@
     <!-- HEADER SECTION: Main Navigation and Branding               -->
     <!-- ============================================================== -->
     <div class="roadly-header-area inner-style" id="sticky-header">
+        <div class="header-top-bar">
+            <div class="container-fluid">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="top-contact">
+                        <span class="me-3"><i class="fa fa-phone"></i> +968 2444 6000</span>
+                        <span><i class="fa fa-envelope"></i> info@sohooloman.com</span>
+                    </div>
+                    <div class="top-social">
+                        <a href="#" class="text-white me-2"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="row header-bottom align-items-center">
                 <div class="col-lg-2">
