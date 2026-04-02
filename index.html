@@ -125,9 +125,10 @@
         .breadcrumb::after {
             content: "";
             width: 40px;
-            height: 2px;
-            background: #1f6b3a;
-            opacity: 0.6;
+            height: 6px;
+            border-top: 1.5px solid #1f6b3a;
+            border-bottom: 1.5px solid #1f6b3a;
+            opacity: 0.8;
         }
 
         /* Site Header */
@@ -436,8 +437,9 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            opacity: 0.4;
+            opacity: 0.8;
             pointer-events: none;
+            z-index: 2;
         }
 
         .dots-grid span {
@@ -452,10 +454,11 @@
             right: 5%;
             bottom: 10%;
             width: 300px;
-            opacity: 0.6;
+            opacity: 0.8;
             pointer-events: none;
+            z-index: 2;
         }
-
+        
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
@@ -528,35 +531,6 @@
             }
         }
 
-        /* Decorative Shapes */
-        .dots {
-            position: absolute;
-            left: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .dots div {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            border-radius: 50%;
-            animation: floatDot 4s ease-in-out infinite;
-        }
-
-        .dots div:nth-child(even) { animation-delay: 0.8s; }
-        .dots div:nth-child(3n) { animation-delay: 1.5s; }
-        .dots div:nth-child(5n) { animation-delay: 0.4s; }
-
-        @keyframes floatDot {
-            0% { transform: translate(0px, 0px); opacity: 0.8; }
-            50% { transform: translate(5px, -12px); opacity: 1; }
-            100% { transform: translate(0px, 0px); opacity: 0.8; }
-        }
 
         /* Product Hero */
         .product-hero {
@@ -1281,9 +1255,6 @@
         }
 
         @media (max-width: 768px) {
-            .dots {
-                display: none;
-            }
 
             .banner {
                 min-height: 350px;
@@ -1295,7 +1266,7 @@
 
             .product-hero {
                 padding: 30px 20px;
-                margin-top: -30px;
+                margin-top: 20px;
             }
 
             .product-info h2 {
