@@ -1886,7 +1886,7 @@
                             exceptional structural stability. This eliminates additional reinforcement, reducing
                             construction time, material usage, and labor costs.</p>
                     </div>
-                    <div class="feature-card">
+                    <div class="feature-card" id="feature-card-7" style="display:none;">
                         <div class="feature-icon-wrapper">
                             <img src="./assets/images/06_1744277413.webp" alt="Green Building"
                                 style="width: 100%; height: 100%; object-fit: contain;">
@@ -1897,6 +1897,17 @@
                             from the start.</p>
                     </div>
                 </div>
+
+                <!-- View More / View Less Toggle -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <button id="feature-toggle-btn" onclick="toggleFeature7()"
+                        style="padding: 13px 38px; background: var(--primary); color: #fff; border: none;
+                               font-size: 15px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px;
+                               transition: background 0.3s ease;">
+                        View More
+                    </button>
+                </div>
+
             </div>
         </section>
 
@@ -2681,6 +2692,18 @@
             } else {
                 content.classList.add('expanded');
                 btn.innerHTML = '- Read Less';
+            }
+        }
+
+        function toggleFeature7() {
+            const card = document.getElementById('feature-card-7');
+            const btn  = document.getElementById('feature-toggle-btn');
+            if (card.style.display === 'none') {
+                card.style.display = '';
+                btn.textContent = 'View Less';
+            } else {
+                card.style.display = 'none';
+                btn.textContent = 'View More';
             }
         }
 
